@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+#      uri: mongodb://localhost:27017/atm
+      uri: mongodb://db:27017/atm
+
+external:
+  services:
+    atms:
+      url: https://www.dropbox.com/s/6fg0k2wxwrheyqk/ATMs?dl=1

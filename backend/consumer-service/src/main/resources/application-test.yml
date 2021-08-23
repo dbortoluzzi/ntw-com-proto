@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      database: dbtest
+      host: localhost
+      port: 27028
+
+external:
+  services:
+    atms:
+      url: https://www.dropbox.com/s/6fg0k2wxwrheyqk/ATMs?dl=1

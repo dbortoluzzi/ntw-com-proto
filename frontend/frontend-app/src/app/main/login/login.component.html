@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+  <div class="main">
+    <div class="container centered-container login-container">
+      <div class="row">
+        <div class="col-md-12 align-content-center" id="login-text">
+          LOGIN
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 login-form">
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control input-login"
+                placeholder="Username"
+                value=""
+                formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control input-login"
+                placeholder="Password"
+                value=""
+                formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+              />
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn-login shadow" value="Submit" [disabled]="!loginForm.valid"/>
+            </div>
+            <div class="alert alert-danger" role="alert"  *ngIf="loginForm.hasError('accessDenied')">
+              Authentication error
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<app-footer></app-footer>

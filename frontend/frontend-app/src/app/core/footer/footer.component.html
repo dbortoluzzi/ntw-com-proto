@@ -1,0 +1,8 @@
+<div class="fixed-footer">
+  <div class="d-flex justify-content-between" >
+    <div class="p-2">&nbsp;</div>
+    <div class="p-2 align-middle"> All rights reserved {{ currentYear }}</div>
+    <div class="p-2" *ngIf="isLogged()"><button (click)="logout()" id="logout-button" type="button" class="btn btn-light">Logout</button></div>
+    <div class="p-2" *ngIf="!isLogged()">&nbsp;</div>
+  </div>
+</div>
