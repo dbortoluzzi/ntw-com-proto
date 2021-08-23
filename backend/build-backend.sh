@@ -9,6 +9,9 @@ echo $(mvn --version | grep -i java )
 cd consumer-service/
 mvn clean package
 cd ../
+cd producer-service/
+mvn clean package
+cd ../
 cd auth-service/
 mvn clean package
 cd ../

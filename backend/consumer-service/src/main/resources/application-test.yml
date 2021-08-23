@@ -7,5 +7,5 @@ spring:
 
 external:
   services:
-    atms:
+    consumer:
       url: https://www.dropbox.com/s/6fg0k2wxwrheyqk/ATMs?dl=1

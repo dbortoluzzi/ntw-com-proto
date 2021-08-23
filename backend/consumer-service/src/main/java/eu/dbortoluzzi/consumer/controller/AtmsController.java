@@ -28,7 +28,7 @@ public class AtmsController {
 		this.atmsRepository = atmsRepository;
 	}
 
-	@RequestMapping(value = "/api/atms/hello",
+	@RequestMapping(value = "/api/consumer/hello",
 			method = RequestMethod.GET,
 			produces = MediaType.ALL_VALUE)
 	@ResponseStatus(HttpStatus.OK)
@@ -37,7 +37,7 @@ public class AtmsController {
 		return "Hello from " + InetAddress.getLocalHost().getHostAddress() + "aka "+InetAddress.getLocalHost().getHostName();
 	}
 
-	@RequestMapping(value = "/api/atms/checkContainerName/{containerName}",
+	@RequestMapping(value = "/api/consumer/checkContainerName/{containerName}",
 			method = RequestMethod.GET,
 			produces = MediaType.ALL_VALUE)
 	@ResponseStatus(HttpStatus.OK)
@@ -50,7 +50,7 @@ public class AtmsController {
 		return String.valueOf(searchContainerAddress.getHostAddress().equals(localHost.getHostAddress()));
 	}
 
-	@RequestMapping(value = "/api/atms",
+	@RequestMapping(value = "/api/consumer",
 					method = RequestMethod.GET,
 					produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
@@ -63,7 +63,7 @@ public class AtmsController {
 		return response;
 	}
 
-	@GetMapping("/api/atms/search/{query}/{page}/{size}")
+	@GetMapping("/api/consumer/search/{query}/{page}/{size}")
 	@ResponseStatus(HttpStatus.OK)
 	@CrossOrigin
 	public AtmsResponse getAtmsByQuery(@PathVariable  String query, @PathVariable  Integer page, @PathVariable Integer size) {

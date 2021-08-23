@@ -25,6 +25,21 @@ services:
     networks:
       - app-network
 
+  producer-service:
+    restart: always
+    build:
+      context: ./backend/producer-service
+      dockerfile: Dockerfile
+    expose:
+      - "8081"
+    ports:
+      - "8081"
+    depends_on:
+      - db
+      - consumer-service
+    networks:
+      - app-network
+
   auth-service:
     restart: always
     container_name: auth-service

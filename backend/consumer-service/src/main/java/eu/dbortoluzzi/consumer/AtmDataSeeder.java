@@ -25,7 +25,7 @@ public class AtmDataSeeder {
 
 	private final String atmsUrl;
 
-	public AtmDataSeeder(AtmsRepository atmsRepository, @Value("${external.services.atms.url}") String atmsUrl) {
+	public AtmDataSeeder(AtmsRepository atmsRepository, @Value("${external.services.consumer.url}") String atmsUrl) {
 		this.atmsUrl = atmsUrl;
 		this.atmsRepository = atmsRepository;
 	}
@@ -34,14 +34,15 @@ public class AtmDataSeeder {
 
 		try {
 			String jsonArrayString = downloadUsingStream(atmsUrl);
-			logger.info("read from url", jsonArrayString);
+			logger.info("read from url: {}", atmsUrl);
 
 			ObjectMapper mapper = new ObjectMapper();
 			List<Atm> atmList = mapper.readValue(jsonArrayString, new TypeReference<List<Atm>>() { });
 
             atmsRepository.deleteAll();
             long numberOfRecords = atmsRepository.count();
-            if(numberOfRecords == 0) {
+            logger.info("records: {}", numberOfRecords);
+            if(numberOfRecords <= 0) {
                 for(Atm atm: atmList) {
                     logger.info("save {}", atm.toString());
                     AtmIndexable atmExtended = new AtmIndexable(atm.getDistance(), atm.getType(), atm.getAddress());
