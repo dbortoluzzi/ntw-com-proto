@@ -8,6 +8,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class ProducerServiceApplication {
 
+	@Autowired
+	ProducerPollingService producerPollingService;
+
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = 
 				SpringApplication.run(ProducerServiceApplication.class, args);
@@ -18,6 +21,6 @@ public class ProducerServiceApplication {
 	}
 	
 	public void init() {
-		// TODO
+//		producerPollingService.runPollingFile();
 	}
 }
