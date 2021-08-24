@@ -6,6 +6,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 echo $(java -version)
 echo $(mvn --version | grep -i java )
 
+cd commons/
+mvn clean package
+cd ../
 cd consumer-service/
 mvn clean package
 cd ../

@@ -4,16 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerPollingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/test/resources/application-test.yml" afterDir="false" />
+    <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="add">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__it_dbortoluzzi_ntw_com_proto_commons_0_0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/Fragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/Metadata.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/Payload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/FragmentValidationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/FragmentValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/MD5FragmentValidationStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/StringUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerFragmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ntw-com-proto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ntw-com-proto.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/resources/application-test.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/AtmServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auth-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build-backend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build-backend.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerPollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerPollingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/ProducerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -78,7 +96,9 @@
       <recent name="$PROJECT_DIR$/backend/consumer-service/src/test/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="eu.dbortoluzzi.commons.model" />
       <recent name="eu.dbortoluzzi.producer" />
+      <recent name="eu.dbortoluzzi.producer.config" />
       <recent name="" />
       <recent name="eu.dbortoluzzi.auth" />
     </key>
@@ -90,29 +110,16 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AtmServiceApplicationTests.contextLoads">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ProducerTest.contextLoads">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AtmServiceApplicationTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="producer-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="eu.dbortoluzzi.producer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="eu.dbortoluzzi.producer" />
-      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.AtmServiceApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,7 +139,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AtmServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProducerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="producer-service" />
       <extension name="coverage">
         <pattern>
@@ -141,7 +148,22 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="eu.dbortoluzzi.producer" />
-      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.AtmServiceApplicationTests" />
+      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.ProducerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProducerTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="producer-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eu.dbortoluzzi.producer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eu.dbortoluzzi.producer" />
+      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.ProducerTest" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -151,6 +173,13 @@
     <configuration name="AtmServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="consumer-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="eu.dbortoluzzi.consumer.AtmServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="auth-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="eu.dbortoluzzi.auth.AuthServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,13 +195,14 @@
       <item itemvalue="JUnit.AtmServiceApplicationTests" />
       <item itemvalue="Spring Boot.ProducerServiceApplication" />
       <item itemvalue="Spring Boot.AtmServiceApplication" />
-      <item itemvalue="JUnit.AtmServiceApplicationTests (1)" />
-      <item itemvalue="JUnit.AtmServiceApplicationTests.contextLoads" />
+      <item itemvalue="Spring Boot.AuthServiceApplication" />
+      <item itemvalue="JUnit.ProducerTest" />
+      <item itemvalue="JUnit.ProducerTest.contextLoads" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AtmServiceApplicationTests.contextLoads" />
-        <item itemvalue="JUnit.AtmServiceApplicationTests (1)" />
+        <item itemvalue="JUnit.ProducerTest.contextLoads" />
+        <item itemvalue="JUnit.ProducerTest" />
         <item itemvalue="JUnit.AtmServiceApplicationTests" />
       </list>
     </recent_temporary>
@@ -187,7 +217,8 @@
       <updated>1629758262275</updated>
       <workItem from="1629758263531" duration="1433000" />
       <workItem from="1629790756712" duration="8361000" />
-      <workItem from="1629799137772" duration="4058000" />
+      <workItem from="1629799137772" duration="4857000" />
+      <workItem from="1629807581924" duration="5427000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -210,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629798908450</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add reader file">
+      <created>1629806940265</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1629806940265</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,15 +270,26 @@
     <MESSAGE value="db embedded" />
     <MESSAGE value="fix" />
     <MESSAGE value="swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="swagger" />
+    <MESSAGE value="add reader file" />
+    <option name="LAST_COMMIT_MESSAGE" value="add reader file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerPollingService.java</url>
-          <line>37</line>
+          <line>41</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/it/dbortoluzzi/ntw-com-proto/commons/0.0.1-SNAPSHOT/commons-0.0.1-SNAPSHOT.jar!/eu/dbortoluzzi/commons/utils/MD5FragmentValidationStrategy.class</url>
+          <line>16</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/MD5FragmentValidationStrategy.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

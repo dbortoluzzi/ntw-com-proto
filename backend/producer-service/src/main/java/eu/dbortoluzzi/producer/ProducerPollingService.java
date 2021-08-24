@@ -1,5 +1,6 @@
 package eu.dbortoluzzi.producer;
 
+import eu.dbortoluzzi.commons.model.Fragment;
 import eu.dbortoluzzi.producer.config.InstanceConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,11 @@ public class ProducerPollingService {
 
     private final InstanceConfiguration instanceConfiguration;
 
-    public ProducerPollingService(InstanceConfiguration instanceConfiguration) {
+    private final ProducerFragmentService producerFragmentService;
+
+    public ProducerPollingService(InstanceConfiguration instanceConfiguration, ProducerFragmentService producerFragmentService) {
         this.instanceConfiguration = instanceConfiguration;
+        this.producerFragmentService = producerFragmentService;
     }
 
     public void runPolling() throws IOException, InterruptedException {
@@ -50,10 +54,22 @@ public class ProducerPollingService {
 
         ) {
             byte[] buffer = new byte[BUFFER_SIZE];
+            int fileLength = bufferedInputStream.available();
+            log.info("fileLength {}", fileLength);
+            int fragmentNumber = (int) Math.ceil((double) fileLength / BUFFER_SIZE);
             int read;
+            int counter = 1;
             while ((read = bufferedInputStream.read(buffer, 0, buffer.length)) != -1) {
                 // TODO: send to server
                 log.info("reading: " + new String(buffer));
+                Fragment fragment = producerFragmentService.createFragment(counter, fragmentNumber, instanceConfiguration.getInstanceName(), buffer);
+//                log.info("prepared: {}", fragment.toString());
+//
+//                log.info("isValid = {}", producerFragmentService.isValidFragment(fragment));
+//
+//                log.info("decoded: {}", new String(producerFragmentService.decodeFragment(fragment)));
+
+                counter++;
             }
         }
     }
