@@ -1,0 +1,5 @@
+auth:
+  fake:
+    user:
+      username: user.test
+      password: password
