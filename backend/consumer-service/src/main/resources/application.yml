@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-#      uri: mongodb://localhost:27017/
+#      uri: mongodb://localhost:27888/
       uri: mongodb://db:27017/
 
 external:

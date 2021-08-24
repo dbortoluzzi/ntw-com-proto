@@ -1,4 +1,6 @@
 producer:
-  consumer:
+  polling:
     folder:
       /home/daniele/ntw-com-proto/
+  fragments:
+    url: http://localhost/api/consumer/fragment

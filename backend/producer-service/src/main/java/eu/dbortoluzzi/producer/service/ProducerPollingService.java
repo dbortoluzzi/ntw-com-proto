@@ -1,4 +1,4 @@
-package eu.dbortoluzzi.producer;
+package eu.dbortoluzzi.producer.service;
 
 import eu.dbortoluzzi.commons.model.Fragment;
 import eu.dbortoluzzi.producer.config.InstanceConfiguration;
@@ -68,6 +68,8 @@ public class ProducerPollingService {
 //                log.info("isValid = {}", producerFragmentService.isValidFragment(fragment));
 //
 //                log.info("decoded: {}", new String(producerFragmentService.decodeFragment(fragment)));
+
+                producerFragmentService.sendToConsumer(fragment);
 
                 counter++;
             }
