@@ -15,10 +15,16 @@ import java.util.Date;
 public class MongoFragment extends Fragment {
     @Id
     protected String id;
-    private Date receivingDate;
+    private Date creationDate;
+    private String uniqueFileName;
 
     public MongoFragment(Fragment fragment, Date receivingDate) {
-        super(fragment.getPayload(), fragment.getTimestamp(), fragment.getTotal(), fragment.getIndex());
-        this.receivingDate = receivingDate;
+        super(fragment.getPayload(), fragment.getTimestamp(), fragment.getFilename(), fragment.getTotal(), fragment.getIndex());
+        this.creationDate = receivingDate;
+        this.uniqueFileName = generateUniqueFileName();
+    }
+
+    private String generateUniqueFileName() {
+        return getFilename()+"-"+ getTimestamp().getTime();
     }
 }

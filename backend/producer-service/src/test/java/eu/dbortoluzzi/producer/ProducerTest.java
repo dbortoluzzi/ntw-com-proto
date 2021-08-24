@@ -37,7 +37,7 @@ public class ProducerTest {
 	public void contextLoads() {
 		System.out.println("I'm alive " + instanceConfiguration.getInstanceName());
 
-		Fragment fragment = producerFragmentService.createFragment(1, 100, "INSTANCE", TEXT.getBytes(StandardCharsets.UTF_8));
+		Fragment fragment = producerFragmentService.createFragment(1, 100, "INSTANCE", "FILENAME", TEXT.getBytes(StandardCharsets.UTF_8));
 		Assert.assertTrue(producerFragmentService.isValidFragment(fragment));
 		Assert.assertEquals(new String(producerFragmentService.decodeFragment(fragment)), TEXT);
 
@@ -48,7 +48,7 @@ public class ProducerTest {
 	}
 
 	@Test
-//	@Ignore
+	@Ignore
 	public void runPolling() throws IOException, InterruptedException {
 		System.out.println("I'm alive " + instanceConfiguration.getInstanceName());
 		producerPollingService.runPolling();

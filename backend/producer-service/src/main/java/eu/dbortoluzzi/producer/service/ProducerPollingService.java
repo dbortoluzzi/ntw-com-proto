@@ -28,6 +28,9 @@ public class ProducerPollingService {
                 = FileSystems.getDefault().newWatchService();
 
         Path path = Paths.get(instanceConfiguration.getPollingPath());
+        try {
+            Files.createDirectories(path);
+        }catch (Exception e) {}
 
         path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
 
@@ -54,15 +57,14 @@ public class ProducerPollingService {
 
         ) {
             byte[] buffer = new byte[BUFFER_SIZE];
-            int fileLength = bufferedInputStream.available();
+            long fileLength = file.length();
             log.info("fileLength {}", fileLength);
             int fragmentNumber = (int) Math.ceil((double) fileLength / BUFFER_SIZE);
             int read;
             int counter = 1;
             while ((read = bufferedInputStream.read(buffer, 0, buffer.length)) != -1) {
-                // TODO: send to server
                 log.info("reading: " + new String(buffer));
-                Fragment fragment = producerFragmentService.createFragment(counter, fragmentNumber, instanceConfiguration.getInstanceName(), buffer);
+                Fragment fragment = producerFragmentService.createFragment(counter, fragmentNumber, instanceConfiguration.getInstanceName(), file.getName(), buffer);
 //                log.info("prepared: {}", fragment.toString());
 //
 //                log.info("isValid = {}", producerFragmentService.isValidFragment(fragment));
