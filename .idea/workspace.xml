@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/SpringMongoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/auth-service/src/test/java/eu/dbortoluzzi/auth/TestMongoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringFoxConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringFoxConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auth-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/model/UserForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/model/UserForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auth-service/src/test/resources/application-test.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/test/java/eu/dbortoluzzi/auth/AuthServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/auth-service/src/test/java/eu/dbortoluzzi/auth/AuthServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +139,7 @@
       <option name="presentableId" value="Default" />
       <updated>1629758262275</updated>
       <workItem from="1629758263531" duration="1433000" />
-      <workItem from="1629790756712" duration="6523000" />
+      <workItem from="1629790756712" duration="7931000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -154,14 +148,33 @@
       <option name="project" value="LOCAL" />
       <updated>1629796029612</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix">
+      <created>1629797575086</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1629797575086</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="db embedded" />
-    <option name="LAST_COMMIT_MESSAGE" value="db embedded" />
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
 </project>
