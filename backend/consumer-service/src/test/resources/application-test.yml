@@ -1,10 +1,3 @@
-spring:
-  data:
-    mongodb:
-      database: dbtest
-      host: localhost
-      port: 27028
-
 external:
   services:
     consumer:
