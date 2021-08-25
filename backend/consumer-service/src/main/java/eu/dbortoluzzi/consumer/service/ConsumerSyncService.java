@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 public class ConsumerSyncService {
 
     public static final String SYNC_ID = "id";
-    public static final int MAX_NUM_FRAGMENTS_TO_SYNC = 250; // TODO: add configuration
+    public static final int MAX_NUM_FRAGMENTS_TO_SYNC = 1000; // TODO: add configuration
 
     private final ObjectMapper objectMapper;
     private final FragmentRepository fragmentRepository;

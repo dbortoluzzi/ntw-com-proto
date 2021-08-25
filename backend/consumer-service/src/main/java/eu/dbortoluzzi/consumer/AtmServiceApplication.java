@@ -21,7 +21,7 @@ import java.util.concurrent.Executor;
 @Slf4j
 public class AtmServiceApplication {
 
-	public static final long DELAY = 5000L;
+	public static final long DELAY = 2000L;
 	private boolean firstSync = true;
 
 	@Autowired
