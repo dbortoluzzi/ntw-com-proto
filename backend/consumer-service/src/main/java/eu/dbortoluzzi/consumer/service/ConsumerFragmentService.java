@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Service
@@ -45,7 +46,7 @@ public class ConsumerFragmentService {
     }
 
     public void addFragment(Fragment fragment, Date receivingDate, Boolean alreadySync) {
-        fragmentRepository.insertIfNotExists(new MongoFragment(fragment, null, receivingDate, alreadySync));
+        fragmentRepository.insertIfNotExists(new MongoFragment(fragment, null, receivingDate, alreadySync, new ArrayList<>()));
     }
 
     public boolean isValidFragment(Fragment fragment) {

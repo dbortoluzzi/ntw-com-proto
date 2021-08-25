@@ -7,18 +7,7 @@
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringMongoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringMongoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/resources/application-test.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +26,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -243,7 +237,7 @@
       <workItem from="1629790756712" duration="8361000" />
       <workItem from="1629799137772" duration="4857000" />
       <workItem from="1629807581924" duration="33354000" />
-      <workItem from="1629883431935" duration="4509000" />
+      <workItem from="1629883431935" duration="8384000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -308,7 +302,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629853590009</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="various improvements and fixes">
+      <created>1629887970033</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1629887970033</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactor algorithm">
+      <created>1629896108716</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1629896108716</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +344,9 @@
     <MESSAGE value="find or replace in fragments&#10;fix on length files" />
     <MESSAGE value="add syncronous sync (but sequential... try to use fake response)" />
     <MESSAGE value="fix shared folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix shared folder" />
+    <MESSAGE value="various improvements and fixes" />
+    <MESSAGE value="refactor algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor algorithm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
