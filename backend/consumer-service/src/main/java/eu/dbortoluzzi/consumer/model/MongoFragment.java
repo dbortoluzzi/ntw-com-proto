@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -19,17 +20,19 @@ public class MongoFragment extends Fragment {
     private Date creationDate;
     private String uniqueFileName;
     private Boolean synced;
+    private List<String> instancesSynced;
 
-    public MongoFragment(Fragment fragment, String id, Date creationDate, Boolean synced) {
+    public MongoFragment(Fragment fragment, String id, Date creationDate, Boolean synced, List<String> instancesSynced) {
         super(fragment.getPayload(), fragment.getTimestamp(), fragment.getFilename(), fragment.getTotal(), fragment.getIndex());
         this.id = id;
         this.creationDate = creationDate;
         this.uniqueFileName = generateUniqueFileName();
         this.synced = synced;
+        this.instancesSynced = instancesSynced;
     }
 
-    public MongoFragment(MongoFragment mongoFragment, Boolean synced) {
-        this(mongoFragment, mongoFragment.id, mongoFragment.creationDate, synced);
+    public MongoFragment(MongoFragment mongoFragment, Boolean synced, List<String> instancesSynced) {
+        this(mongoFragment, mongoFragment.id, mongoFragment.creationDate, synced, instancesSynced);
     }
 
     private String generateUniqueFileName() {

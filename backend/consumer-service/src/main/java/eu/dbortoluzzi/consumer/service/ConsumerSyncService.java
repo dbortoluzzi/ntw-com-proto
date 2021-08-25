@@ -17,9 +17,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -29,17 +31,13 @@ public class ConsumerSyncService {
 
     private final ObjectMapper objectMapper;
     private final FragmentRepository fragmentRepository;
-    private final FragmentValidationStrategy fragmentValidationStrategy;
-    private final ConsumerRoutingTable consumerRoutingTable;
     private final InstanceConfiguration instanceConfiguration;
     private final SyncRepository syncRepository;
-    private List<RoutingElement> otherConsumers;
+    private final List<RoutingElement> otherConsumers;
 
-    public ConsumerSyncService(FragmentRepository fragmentRepository, ObjectMapper objectMapper, ConsumerRoutingTable consumerRoutingTable, InstanceConfiguration instanceConfiguration, SyncRepository syncRepository) {
+    public ConsumerSyncService(FragmentRepository fragmentRepository, ObjectMapper objectMapper, InstanceConfiguration instanceConfiguration, SyncRepository syncRepository) {
         this.fragmentRepository = fragmentRepository;
         this.objectMapper = objectMapper;
-        this.fragmentValidationStrategy = new MD5FragmentValidationStrategy();
-        this.consumerRoutingTable = consumerRoutingTable;
         this.instanceConfiguration = instanceConfiguration;
         this.syncRepository = syncRepository;
         this.otherConsumers = instanceConfiguration.otherConsumers();
@@ -63,23 +61,33 @@ public class ConsumerSyncService {
             log.info("founded {} fragments to sync", mongoFragmentsToSync.size());
             for (MongoFragment mongoFragment : mongoFragmentsToSync) {
                 log.info("sync fragment {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                List<String> syncedWithSuccess = new ArrayList<>();
+                List<String> instancesAlreadySynced = Optional.ofNullable(mongoFragment.getInstancesSynced()).orElse(new ArrayList<>());
+                boolean synced = false;
                 try {
-                    boolean allSuccess = true;
-                    for (RoutingElement routingElement : otherConsumers) {
+                    List<RoutingElement> instancesToSync = otherConsumers.stream().filter(oc -> !instancesAlreadySynced.contains(oc.getName())).collect(Collectors.toList());
+
+                    for (RoutingElement routingElement : instancesToSync) {
                         log.info("call {} for {} {}", routingElement.getName(), mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
-                        boolean success = sendToConsumer(routingElement, mongoFragment);
-                        if (!success) {
-                            allSuccess = false;
+                        boolean successSingleSync = sendToConsumer(routingElement, mongoFragment);
+                        if (successSingleSync) {
+                            syncedWithSuccess.add(routingElement.getName());
                         }
                     }
-                    if (allSuccess) {
-                        log.info("sync fragment with SUCCESS {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
-                        fragmentRepository.save(new MongoFragment(mongoFragment, true));//TODO: update only synced
+                    if (syncedWithSuccess.size() == instancesToSync.size()) {
+                        log.info("syncing, set fragment with SUCCESS {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                        synced = true;
                     } else {
-                        log.warn("sync fragment with ERROR {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                        log.warn("syncing, set fragment with ERROR {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
                     }
                 } catch (Exception e) {
                     log.error("error for sync {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                } finally {
+                    List<String> newInstancesSynced = new ArrayList<>();
+                    newInstancesSynced.addAll(instancesAlreadySynced);
+                    newInstancesSynced.addAll(syncedWithSuccess);
+                    log.info("save fragment SUCCESS={} instances={}, with {} {}", synced, String.join(" ", newInstancesSynced), mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                    fragmentRepository.save(new MongoFragment(mongoFragment, synced, newInstancesSynced));
                 }
             }
             // END elaborating
