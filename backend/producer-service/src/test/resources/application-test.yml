@@ -3,4 +3,19 @@ producer:
     folder:
       /home/daniele/ntw-com-proto/
   fragments:
-    url: http://localhost/api/consumer/fragment
+    url: api/consumer/fragment
+    port: 8080
+
+producerRoutingTable:
+  - name: ntw-com-proto_producer-service_1
+    master: true
+  - name: mint-N56JK
+    master: false
+
+consumerRoutingTable:
+  - name: ntw-com-proto_consumer-service_1
+    master: true
+  - name: ntw-com-proto_consumer-service_2
+    master: true
+  - name: mint-N56JK
+    master: false

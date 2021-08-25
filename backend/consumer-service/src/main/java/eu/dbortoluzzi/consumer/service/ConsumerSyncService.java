@@ -2,13 +2,10 @@ package eu.dbortoluzzi.consumer.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.dbortoluzzi.commons.model.Fragment;
-import eu.dbortoluzzi.commons.utils.FragmentValidationStrategy;
-import eu.dbortoluzzi.commons.utils.MD5FragmentValidationStrategy;
+import eu.dbortoluzzi.commons.model.RoutingElement;
 import eu.dbortoluzzi.commons.utils.StringUtils;
-import eu.dbortoluzzi.consumer.ConsumerRoutingTable;
 import eu.dbortoluzzi.consumer.config.InstanceConfiguration;
 import eu.dbortoluzzi.consumer.model.MongoFragment;
-import eu.dbortoluzzi.consumer.model.RoutingElement;
 import eu.dbortoluzzi.consumer.model.Sync;
 import eu.dbortoluzzi.consumer.repository.FragmentRepository;
 import eu.dbortoluzzi.consumer.repository.SyncRepository;
@@ -56,6 +53,7 @@ public class ConsumerSyncService {
             // START elaborating
             long startElaboration = new Date().getTime();
             syncRepository.save(new Sync(SYNC_ID, true, syncDate));
+
             log.info("started syncProcess {}", syncDate);
             List<MongoFragment> mongoFragmentsToSync = fragmentRepository.getNotSynced(syncDate, 1000); // TODO: add configuration
             log.info("founded {} fragments to sync", mongoFragmentsToSync.size());

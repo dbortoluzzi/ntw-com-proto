@@ -69,7 +69,7 @@ public class ProducerPollingService {
             int read;
             int counter = 1;
             while ((read = bufferedInputStream.read(buffer, 0, buffer.length)) != -1) {
-                log.info("reading: " + new String(buffer));
+//                log.info("reading: " + new String(buffer));
                 Fragment fragment = producerFragmentService.createFragment(counter, fragmentNumber, instanceConfiguration.getInstanceName(), file.getName(), buffer);
 //                log.info("prepared: {}", fragment.toString());
 //

@@ -1,7 +1,7 @@
 package eu.dbortoluzzi.consumer.config;
 
+import eu.dbortoluzzi.commons.model.RoutingElement;
 import eu.dbortoluzzi.consumer.ConsumerRoutingTable;
-import eu.dbortoluzzi.consumer.model.RoutingElement;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

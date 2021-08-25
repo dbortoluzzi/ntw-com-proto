@@ -1,6 +1,6 @@
 package eu.dbortoluzzi.consumer.config;
 
-import eu.dbortoluzzi.consumer.model.RoutingElement;
+import eu.dbortoluzzi.commons.model.RoutingElement;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 

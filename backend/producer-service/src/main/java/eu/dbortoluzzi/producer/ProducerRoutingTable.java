@@ -1,7 +1,8 @@
-package eu.dbortoluzzi.consumer;
+package eu.dbortoluzzi.producer;
 
 import eu.dbortoluzzi.commons.model.RoutingElement;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +14,8 @@ import java.util.List;
 @Configuration
 @EnableConfigurationProperties
 @ConfigurationProperties
-public class ConsumerRoutingTable {
+public class ProducerRoutingTable {
 
-    private List<RoutingElement> routingTable;
+    private List<RoutingElement> producerRoutingTable;
 
 }

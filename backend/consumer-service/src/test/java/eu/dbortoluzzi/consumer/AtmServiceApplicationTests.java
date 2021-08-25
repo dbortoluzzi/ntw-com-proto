@@ -1,9 +1,9 @@
 package eu.dbortoluzzi.consumer;
 
+import eu.dbortoluzzi.commons.model.RoutingElement;
 import eu.dbortoluzzi.consumer.config.InstanceConfiguration;
 import eu.dbortoluzzi.consumer.model.Address;
 import eu.dbortoluzzi.consumer.model.AtmIndexable;
-import eu.dbortoluzzi.consumer.model.RoutingElement;
 import eu.dbortoluzzi.consumer.repository.AtmsRepository;
 import eu.dbortoluzzi.consumer.repository.AtmsRepositoryCustom;
 import eu.dbortoluzzi.consumer.service.ConsumerSyncService;

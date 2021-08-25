@@ -1,4 +1,4 @@
-package eu.dbortoluzzi.consumer.model;
+package eu.dbortoluzzi.commons.model;
 
 import lombok.*;
 

@@ -5,9 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ConsumerRoutingTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerRoutingTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/test/resources/application-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/ConsumerRoutingTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/ConsumerRoutingTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/RoutingElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/RoutingElement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/ProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/ProducerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/test/resources/application-test.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +74,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/producer-service/src/test/resources" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -71,8 +85,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer" />
       <recent name="$PROJECT_DIR$/backend/producer-service/src/test/resources" />
+      <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config" />
@@ -80,11 +94,11 @@
       <recent name="$PROJECT_DIR$/backend/consumer-service/src/test/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="eu.dbortoluzzi.producer" />
       <recent name="eu.dbortoluzzi.consumer.repository" />
       <recent name="eu.dbortoluzzi.consumer.model" />
       <recent name="eu.dbortoluzzi.consumer.service" />
       <recent name="eu.dbortoluzzi.consumer.controller" />
-      <recent name="eu.dbortoluzzi.commons.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -94,28 +108,13 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ProducerTest.runPolling">
+  <component name="RunManager" selected="JUnit.ProducerTest.runPolling (1)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AtmServiceApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="consumer-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="eu.dbortoluzzi.consumer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="eu.dbortoluzzi.consumer" />
-      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.consumer.AtmServiceApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,17 +136,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProducerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProducerTest.contextLoads (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="producer-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="eu.dbortoluzzi.producer.service.*" />
+          <option name="PATTERN" value="eu.dbortoluzzi.producer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="eu.dbortoluzzi.producer" />
       <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.ProducerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea -ea -Dspring.profiles.active=test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,7 +157,7 @@
       <module name="producer-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="eu.dbortoluzzi.producer.service.*" />
+          <option name="PATTERN" value="eu.dbortoluzzi.producer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,6 +165,24 @@
       <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.ProducerTest" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea -Dspring.profiles.active=test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProducerTest.runPolling (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="producer-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eu.dbortoluzzi.producer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eu.dbortoluzzi.producer" />
+      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.ProducerTest" />
+      <option name="METHOD_NAME" value="runPolling" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea -ea -Dspring.profiles.active=test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -180,6 +199,15 @@
       <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.ProducerTest" />
       <option name="METHOD_NAME" value="runPolling" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea -ea -Dspring.profiles.active=test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -206,22 +234,22 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AtmServiceApplicationTests" />
-      <item itemvalue="JUnit.ProducerTest" />
-      <item itemvalue="JUnit.ProducerTest.contextLoads" />
       <item itemvalue="JUnit.ProducerTest.runPolling" />
       <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
+      <item itemvalue="JUnit.ProducerTest.contextLoads" />
       <item itemvalue="Spring Boot.ProducerServiceApplication" />
       <item itemvalue="Spring Boot.AtmServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
+      <item itemvalue="JUnit.ProducerTest.contextLoads (1)" />
+      <item itemvalue="JUnit.ProducerTest.runPolling (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProducerTest.runPolling" />
-        <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
-        <item itemvalue="JUnit.AtmServiceApplicationTests" />
+        <item itemvalue="JUnit.ProducerTest.runPolling (1)" />
+        <item itemvalue="JUnit.ProducerTest.contextLoads (1)" />
         <item itemvalue="JUnit.ProducerTest.contextLoads" />
-        <item itemvalue="JUnit.ProducerTest" />
+        <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
+        <item itemvalue="JUnit.ProducerTest.runPolling" />
       </list>
     </recent_temporary>
   </component>
