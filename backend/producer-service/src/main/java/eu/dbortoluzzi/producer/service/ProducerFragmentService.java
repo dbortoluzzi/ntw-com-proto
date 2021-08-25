@@ -13,12 +13,17 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -59,12 +64,12 @@ public class ProducerFragmentService {
     }
 
     @SneakyThrows
-    public Fragment createFragment(Integer index, Integer total, String instance, String filename, Date timestamp, byte[] text) {
+    public Fragment createFragment(Long index, Long total, String instance, String filename, Date timestamp, byte[] text) {
         String textEncoded = StringUtils.encodeHexString(text);
         return Fragment.builder()
                 .filename(filename)
-                .index(index)
-                .total(total)
+                .index(index.intValue()) //TODO: convert to long
+                .total(total.intValue()) //TODO: convert to long
                 .timestamp(timestamp)
                 .payload(
                         Payload.builder()
@@ -78,6 +83,11 @@ public class ProducerFragmentService {
                                 .build()
                 )
                 .build();
+    }
+
+    @Async
+    public CompletableFuture<Boolean> sendToConsumerParallel(Fragment fragment) {
+        return CompletableFuture.supplyAsync(() -> sendToConsumer(fragment));
     }
 
     public boolean sendToConsumer(Fragment fragment) {
@@ -105,4 +115,20 @@ public class ProducerFragmentService {
         return false;
     }
 
+    public void addElaborationToCompletableFutures(File file, Date timestamp, byte[] buffer, long totalFragment, long counter, List<CompletableFuture<Boolean>> completableFutureList) {
+        Fragment fragment = createFragment(counter, totalFragment, instanceConfiguration.getInstanceName(), file.getName(), timestamp, buffer);
+        CompletableFuture<Boolean> completableFuture = sendToConsumerParallel(fragment);
+        completableFutureList.add(completableFuture);
+    }
+
+    // TODO: refactor, move to common
+    public <T> CompletableFuture<List<T>> allOf(List<CompletableFuture<T>> futuresList) {
+        CompletableFuture<Void> allFuturesResult =
+                CompletableFuture.allOf(futuresList.toArray(new CompletableFuture[futuresList.size()]));
+        return allFuturesResult.thenApply(v ->
+                futuresList.stream().
+                        map(future -> future.join()).
+                        collect(Collectors.<T>toList())
+        );
+    }
 }

@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableSwagger2
@@ -28,6 +31,17 @@ public class AtmServiceApplication {
 
 	@Autowired
 	private ConsumerSyncService consumerSyncService;
+
+	@Bean
+	public Executor asyncExecutor() {
+		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		executor.setCorePoolSize(15);
+		executor.setMaxPoolSize(15);
+		executor.setQueueCapacity(500);
+		executor.setThreadNamePrefix("PRODUCER-");
+		executor.initialize();
+		return executor;
+	}
 	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = 
