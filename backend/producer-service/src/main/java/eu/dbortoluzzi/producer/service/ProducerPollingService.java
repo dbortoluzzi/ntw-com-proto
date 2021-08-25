@@ -1,6 +1,7 @@
 package eu.dbortoluzzi.producer.service;
 
 import eu.dbortoluzzi.commons.model.Fragment;
+import eu.dbortoluzzi.commons.utils.CommonUtils;
 import eu.dbortoluzzi.producer.config.InstanceConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -57,7 +58,7 @@ public class ProducerPollingService {
                 Object context = event.context();
                 if (context instanceof Path) {
                     Path p = (Path) context;
-                    waitingForCopyCompleted(p);
+                    CommonUtils.waitingForCopyCompleted(p);
                     System.out.println("Finished creating file!");
 
                     // read chunks
@@ -94,7 +95,7 @@ public class ProducerPollingService {
                     elementsOfChunk++;
                     counter++;
                 }
-                List<Boolean> results = producerFragmentService.allOf(completableFutureList).join();
+                List<Boolean> results = CommonUtils.allOfCompletableFutures(completableFutureList).join();
                 fragmentWithSuccess += results.stream().filter(b -> b).count();
             }
             bufferedInputStream.close();
@@ -106,21 +107,6 @@ public class ProducerPollingService {
                 // TODO: recover file undeleted: move to a directory to recover with a timestamp suffix (to use for fragment)
             }
         }
-    }
-
-    // TODO: refactor, move to common
-    private void waitingForCopyCompleted(Path p) throws InterruptedException {
-        boolean isGrowing;
-        Long initialWeight;
-        Long finalWeight;
-
-        do {
-            initialWeight = p.toFile().length();
-            Thread.sleep(1000);
-            finalWeight = p.toFile().length();
-            isGrowing = initialWeight < finalWeight;
-
-        } while (isGrowing);
     }
 
 }

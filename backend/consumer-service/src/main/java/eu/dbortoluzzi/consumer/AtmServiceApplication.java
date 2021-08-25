@@ -21,27 +21,25 @@ import java.util.concurrent.Executor;
 @Slf4j
 public class AtmServiceApplication {
 
+	public static final long DELAY = 5000L;
 	private boolean firstSync = true;
 
 	@Autowired
 	private InstanceConfiguration instanceConfiguration;
 
 	@Autowired
-	private AtmDataSeeder atmDataSeeder;
-
-	@Autowired
 	private ConsumerSyncService consumerSyncService;
 
-	@Bean
-	public Executor asyncExecutor() {
-		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-		executor.setCorePoolSize(15);
-		executor.setMaxPoolSize(15);
-		executor.setQueueCapacity(500);
-		executor.setThreadNamePrefix("PRODUCER-");
-		executor.initialize();
-		return executor;
-	}
+//	@Bean
+//	public Executor asyncExecutor() {
+//		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+//		executor.setCorePoolSize(15);
+//		executor.setMaxPoolSize(15);
+//		executor.setQueueCapacity(500);
+//		executor.setThreadNamePrefix("CONSUMER-");
+//		executor.initialize();
+//		return executor;
+//	}
 	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = 
@@ -54,7 +52,6 @@ public class AtmServiceApplication {
 	
 	public void init() {
 		log.info("starting for instance {}", instanceConfiguration.getInstanceName());
-//		atmDataSeeder.seedIfEmpty();
 
 		TimerTask task = new TimerTask() {
 			public void run() {
@@ -65,7 +62,7 @@ public class AtmServiceApplication {
 		};
 		Timer timer = new Timer("Timer");
 
-		long delay = 10000L;
+		long delay = DELAY;
 		timer.scheduleAtFixedRate(task, delay, delay);
 	}
 

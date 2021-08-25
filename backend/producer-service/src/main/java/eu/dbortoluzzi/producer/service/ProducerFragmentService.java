@@ -121,14 +121,4 @@ public class ProducerFragmentService {
         completableFutureList.add(completableFuture);
     }
 
-    // TODO: refactor, move to common
-    public <T> CompletableFuture<List<T>> allOf(List<CompletableFuture<T>> futuresList) {
-        CompletableFuture<Void> allFuturesResult =
-                CompletableFuture.allOf(futuresList.toArray(new CompletableFuture[futuresList.size()]));
-        return allFuturesResult.thenApply(v ->
-                futuresList.stream().
-                        map(future -> future.join()).
-                        collect(Collectors.<T>toList())
-        );
-    }
 }
