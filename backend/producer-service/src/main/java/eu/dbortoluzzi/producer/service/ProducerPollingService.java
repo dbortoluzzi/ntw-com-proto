@@ -28,16 +28,18 @@ public class ProducerPollingService {
                 = FileSystems.getDefault().newWatchService();
 
         Path path = Paths.get(instanceConfiguration.getPollingPath());
+        // create folder if not exists
         try {
             File file = path.toFile();
             file.mkdirs();
             file.setWritable(true, false);
             file.setReadable(true, false);
-            file.setExecutable(true,false);
-        }catch (Exception e) {
+            file.setExecutable(true, false);
+        } catch (Exception e) {
             log.error("error creating path", e);
         }
 
+        // register for creation file event
         path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
 
         WatchKey key;
@@ -48,6 +50,7 @@ public class ProducerPollingService {
                 Object context = event.context();
                 if (context instanceof Path) {
                     Path p = (Path) context;
+                    // read chunks
                     readUsingChunks(new File(path.toString() + "/" + p.getFileName().toString()));
                 }
             }
@@ -65,21 +68,31 @@ public class ProducerPollingService {
             byte[] buffer = new byte[BUFFER_SIZE];
             long fileLength = file.length();
             log.info("fileLength {}", fileLength);
-            int fragmentNumber = (int) Math.ceil((double) fileLength / BUFFER_SIZE);
+            int totalFragment = (int) Math.ceil((double) fileLength / BUFFER_SIZE);
             int read;
+            int fragmentWithSuccess = 0;
             int counter = 1;
             while ((read = bufferedInputStream.read(buffer, 0, buffer.length)) != -1) {
 //                log.info("reading: " + new String(buffer));
-                Fragment fragment = producerFragmentService.createFragment(counter, fragmentNumber, instanceConfiguration.getInstanceName(), file.getName(), buffer);
+                Fragment fragment = producerFragmentService.createFragment(counter, totalFragment, instanceConfiguration.getInstanceName(), file.getName(), buffer);
 //                log.info("prepared: {}", fragment.toString());
 //
 //                log.info("isValid = {}", producerFragmentService.isValidFragment(fragment));
 //
 //                log.info("decoded: {}", new String(producerFragmentService.decodeFragment(fragment)));
 
-                producerFragmentService.sendToConsumer(fragment);
-
+                boolean successFragment = producerFragmentService.sendToConsumer(fragment);
+                if (successFragment) {
+                    fragmentWithSuccess++;
+                }
                 counter++;
+            }
+            bufferedInputStream.close();
+            if (fragmentWithSuccess == totalFragment) {
+                file.delete();
+            } else {
+                log.error("file with errors: {} fragmentWithSuccess != {} totalFragment", fragmentWithSuccess, totalFragment);
+                // TODO: recover file undeleted
             }
         }
     }

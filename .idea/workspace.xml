@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ConsumerRoutingTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerRoutingTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/producer-service/src/test/resources/application-test.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/ConsumerRoutingTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/ConsumerRoutingTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/RoutingElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/RoutingElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/ProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/ProducerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/test/resources/application-test.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629896108716</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="routing map also in producer">
+      <created>1629902460858</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1629902460858</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,14 +366,15 @@
     <MESSAGE value="fix shared folder" />
     <MESSAGE value="various improvements and fixes" />
     <MESSAGE value="refactor algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor algorithm" />
+    <MESSAGE value="routing map also in producer" />
+    <option name="LAST_COMMIT_MESSAGE" value="routing map also in producer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java</url>
-          <line>41</line>
+          <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
