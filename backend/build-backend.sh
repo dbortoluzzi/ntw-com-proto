@@ -15,6 +15,6 @@ cd ../
 cd producer-service/
 mvn clean package
 cd ../
-cd auth-service/
-mvn clean package
-cd ../
+#cd auth-service/
+#mvn clean package
+#cd ../

@@ -59,13 +59,13 @@ public class ProducerFragmentService {
     }
 
     @SneakyThrows
-    public Fragment createFragment(Integer index, Integer total, String instance, String filename, byte[] text) {
+    public Fragment createFragment(Integer index, Integer total, String instance, String filename, Date timestamp, byte[] text) {
         String textEncoded = StringUtils.encodeHexString(text);
         return Fragment.builder()
                 .filename(filename)
                 .index(index)
                 .total(total)
-                .timestamp(new Date())
+                .timestamp(timestamp)
                 .payload(
                         Payload.builder()
                                 .text(textEncoded)

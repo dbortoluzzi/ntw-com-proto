@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest()
@@ -43,7 +44,7 @@ public class ProducerTest {
 
 		Assert.assertTrue(instanceConfiguration.consumers().size() > 0);
 
-		Fragment fragment = producerFragmentService.createFragment(1, 100, "INSTANCE", "FILENAME", TEXT.getBytes(StandardCharsets.UTF_8));
+		Fragment fragment = producerFragmentService.createFragment(1, 100, "INSTANCE", "FILENAME", new Date(), TEXT.getBytes(StandardCharsets.UTF_8));
 		Assert.assertTrue(producerFragmentService.isValidFragment(fragment));
 		Assert.assertEquals(new String(producerFragmentService.decodeFragment(fragment)), TEXT);
 

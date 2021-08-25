@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.nio.file.*;
+import java.util.Date;
 
 @Service
 @Slf4j
@@ -50,6 +51,9 @@ public class ProducerPollingService {
                 Object context = event.context();
                 if (context instanceof Path) {
                     Path p = (Path) context;
+                    waitingForCopyCompleted(p);
+                    System.out.println("Finished creating file!");
+
                     // read chunks
                     readUsingChunks(new File(path.toString() + "/" + p.getFileName().toString()));
                 }
@@ -59,6 +63,7 @@ public class ProducerPollingService {
     }
 
     private void readUsingChunks(File file) throws IOException {
+        Date timestamp = new Date();
         log.info("reading chunks of " + file.getAbsolutePath());
         try (
                 InputStream inputStream = new FileInputStream(file);
@@ -67,14 +72,13 @@ public class ProducerPollingService {
         ) {
             byte[] buffer = new byte[BUFFER_SIZE];
             long fileLength = file.length();
-            log.info("fileLength {}", fileLength);
             int totalFragment = (int) Math.ceil((double) fileLength / BUFFER_SIZE);
             int read;
             int fragmentWithSuccess = 0;
             int counter = 1;
             while ((read = bufferedInputStream.read(buffer, 0, buffer.length)) != -1) {
 //                log.info("reading: " + new String(buffer));
-                Fragment fragment = producerFragmentService.createFragment(counter, totalFragment, instanceConfiguration.getInstanceName(), file.getName(), buffer);
+                Fragment fragment = producerFragmentService.createFragment(counter, totalFragment, instanceConfiguration.getInstanceName(), file.getName(), timestamp, buffer);
 //                log.info("prepared: {}", fragment.toString());
 //
 //                log.info("isValid = {}", producerFragmentService.isValidFragment(fragment));
@@ -92,9 +96,23 @@ public class ProducerPollingService {
                 file.delete();
             } else {
                 log.error("file with errors: {} fragmentWithSuccess != {} totalFragment", fragmentWithSuccess, totalFragment);
-                // TODO: recover file undeleted
+                // TODO: recover file undeleted: move to a directory to recover with a timestamp suffix (to use for fragment)
             }
         }
+    }
+
+    private void waitingForCopyCompleted(Path p) throws InterruptedException {
+        boolean isGrowing;
+        Long initialWeight;
+        Long finalWeight;
+
+        do {
+            initialWeight = p.toFile().length();
+            Thread.sleep(1000);
+            finalWeight = p.toFile().length();
+            isGrowing = initialWeight < finalWeight;
+
+        } while (isGrowing);
     }
 
 }
