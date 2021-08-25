@@ -18,6 +18,8 @@ import java.util.TimerTask;
 @Slf4j
 public class AtmServiceApplication {
 
+	private boolean firstSync = true;
+
 	@Autowired
 	private InstanceConfiguration instanceConfiguration;
 
@@ -42,7 +44,9 @@ public class AtmServiceApplication {
 
 		TimerTask task = new TimerTask() {
 			public void run() {
-				consumerSyncService.syncProcess(new Date());
+				// TODO: add mutual LOCK with quartz
+				consumerSyncService.syncProcess(new Date(), firstSync);
+				firstSync = false;
 			}
 		};
 		Timer timer = new Timer("Timer");

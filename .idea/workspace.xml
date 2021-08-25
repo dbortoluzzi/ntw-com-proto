@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +237,7 @@
       <workItem from="1629790756712" duration="8361000" />
       <workItem from="1629799137772" duration="4857000" />
       <workItem from="1629807581924" duration="33354000" />
-      <workItem from="1629883431935" duration="7661000" />
+      <workItem from="1629883431935" duration="8384000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -310,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629887970033</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactor algorithm">
+      <created>1629896108716</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1629896108716</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +345,8 @@
     <MESSAGE value="add syncronous sync (but sequential... try to use fake response)" />
     <MESSAGE value="fix shared folder" />
     <MESSAGE value="various improvements and fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="various improvements and fixes" />
+    <MESSAGE value="refactor algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor algorithm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

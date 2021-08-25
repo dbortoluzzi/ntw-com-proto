@@ -44,12 +44,12 @@ public class ConsumerSyncService {
     }
 
     // TODO: now its synchronous -> it will be async
-    public void syncProcess(Date syncDate) {
+    public void syncProcess(Date syncDate, boolean firstSync) {
         try {
             Optional<Sync> oldSync = syncRepository.findById(SYNC_ID);
-            if (oldSync.isPresent()) {
+            if (!firstSync && oldSync.isPresent()) {
                 if (oldSync.get().getElaborating()) {
-                    log.info("sync is elaborating");
+                    log.info("sync is elaborating, skipping");
                     return;
                 }
             }
