@@ -17,6 +17,7 @@ public class InstanceConfigurationImpl implements InstanceConfiguration{
 
     @SneakyThrows
     public String getInstanceName() {
+        // TODO: read from producers configuration
         InetAddress localHost = InetAddress.getLocalHost();
         return "instance_" + localHost.getHostName();
     }

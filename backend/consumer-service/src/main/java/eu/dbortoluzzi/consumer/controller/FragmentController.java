@@ -21,12 +21,27 @@ public class FragmentController {
 	@CrossOrigin
 	public ResponseEntity<String> sendFragment(@RequestBody String data, @PathVariable  String checksum){
 		// TODO: check checksum
-		log.info("sendFragment: for {}, {}", data, checksum);
+		log.info("sendFragment: for {}..., {}", data.substring(0, 5), checksum);
 		try {
 			consumerFragmentService.addFragment(data, new Date());
 			return new ResponseEntity<>("OK", HttpStatus.OK);
 		}catch (Exception e) {
 			log.error("error sendFragment", e);
+			return new ResponseEntity<>("KO", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@PostMapping("/api/consumer/fragment/sync/{checksum}")
+	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin
+	public ResponseEntity<String> sendFragmentForSync(@RequestBody String data, @PathVariable  String checksum){
+		// TODO: check checksum
+		log.info("sendFragmentForSync: for {}..., {}", data.substring(0, 5), checksum);
+		try {
+			consumerFragmentService.addFragment(data, new Date(), true);
+			return new ResponseEntity<>("OK", HttpStatus.OK);
+		}catch (Exception e) {
+			log.error("error sendFragmentForSync", e);
 			return new ResponseEntity<>("KO", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

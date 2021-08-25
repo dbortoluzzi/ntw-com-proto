@@ -17,6 +17,6 @@ routingTable:
 
 consumers:
   url:
-    fragment: api/consumer/fragment
+    fragment: api/consumer/fragment/sync
   port:
     fragment: 8080

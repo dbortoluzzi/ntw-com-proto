@@ -2,7 +2,9 @@ package eu.dbortoluzzi.consumer;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import eu.dbortoluzzi.consumer.config.InstanceConfiguration;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,12 +16,22 @@ import java.net.InetAddress;
 @Profile("default")
 public class SpringMongoConfiguration extends AbstractMongoConfiguration {
 
+    @Autowired
+    InstanceConfiguration instanceConfiguration;
+
     @SneakyThrows
     @Override
     protected String getDatabaseName() {
-        InetAddress localHost = InetAddress.getLocalHost();
-        return "db_"+localHost.getHostName();
+        return "db_"+instanceConfiguration.getInstanceName();
     }
+
+//    @SneakyThrows
+//    @Override
+//    protected String getDatabaseName() {
+//        // TODO: read from config
+//        InetAddress localHost = InetAddress.getLocalHost();
+//        return "db_"+localHost.getHostName();
+//    }
 
     @Value("${spring.data.mongodb.uri}")
     private String mongoURI;

@@ -30,18 +30,22 @@ public class ConsumerFragmentService {
         this.fragmentValidationStrategy = new MD5FragmentValidationStrategy();
     }
 
-    public void addFragment(String hexStr, Date receivingDate) throws IOException {
+    public void addFragment(String hexStr, Date receivingDate, Boolean alreadySync) throws IOException {
         String dataStr = new String(StringUtils.decodeHex(hexStr)); // TODO: add cypher
         Fragment fragment = objectMapper.readValue(dataStr.getBytes(StandardCharsets.UTF_8), Fragment.class);
         if (isValidFragment(fragment)) {
-            addFragment(fragment, receivingDate);
+            addFragment(fragment, receivingDate, alreadySync);
         } else {
             throw new IllegalStateException("INVALID FRAGMENT");
         }
     }
 
-    public void addFragment(Fragment fragment, Date receivingDate) {
-        fragmentRepository.insertIfNotExists(new MongoFragment(fragment, null, receivingDate));
+    public void addFragment(String hexStr, Date receivingDate) throws IOException {
+        addFragment(hexStr, receivingDate, false);
+    }
+
+    public void addFragment(Fragment fragment, Date receivingDate, Boolean alreadySync) {
+        fragmentRepository.insertIfNotExists(new MongoFragment(fragment, null, receivingDate, alreadySync));
     }
 
     public boolean isValidFragment(Fragment fragment) {

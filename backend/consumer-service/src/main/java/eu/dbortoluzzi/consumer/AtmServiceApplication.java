@@ -1,6 +1,8 @@
 package eu.dbortoluzzi.consumer;
 
+import eu.dbortoluzzi.consumer.config.InstanceConfiguration;
 import eu.dbortoluzzi.consumer.service.ConsumerSyncService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,7 +15,11 @@ import java.util.TimerTask;
 
 @SpringBootApplication
 @EnableSwagger2
+@Slf4j
 public class AtmServiceApplication {
+
+	@Autowired
+	private InstanceConfiguration instanceConfiguration;
 
 	@Autowired
 	private AtmDataSeeder atmDataSeeder;
@@ -31,7 +37,8 @@ public class AtmServiceApplication {
 	}
 	
 	public void init() {
-		atmDataSeeder.seedIfEmpty();
+		log.info("starting for instance {}", instanceConfiguration.getInstanceName());
+//		atmDataSeeder.seedIfEmpty();
 
 		TimerTask task = new TimerTask() {
 			public void run() {

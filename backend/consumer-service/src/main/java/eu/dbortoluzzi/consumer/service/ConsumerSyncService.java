@@ -20,19 +20,20 @@ import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
 public class ConsumerSyncService {
 
     public static final String SYNC_ID = "id";
+
     private final ObjectMapper objectMapper;
-    final FragmentRepository fragmentRepository;
+    private final FragmentRepository fragmentRepository;
     private final FragmentValidationStrategy fragmentValidationStrategy;
-    final ConsumerRoutingTable consumerRoutingTable;
-    final InstanceConfiguration instanceConfiguration;
-    final SyncRepository syncRepository;
+    private final ConsumerRoutingTable consumerRoutingTable;
+    private final InstanceConfiguration instanceConfiguration;
+    private final SyncRepository syncRepository;
+    private List<RoutingElement> otherConsumers;
 
     public ConsumerSyncService(FragmentRepository fragmentRepository, ObjectMapper objectMapper, ConsumerRoutingTable consumerRoutingTable, InstanceConfiguration instanceConfiguration, SyncRepository syncRepository) {
         this.fragmentRepository = fragmentRepository;
@@ -41,6 +42,7 @@ public class ConsumerSyncService {
         this.consumerRoutingTable = consumerRoutingTable;
         this.instanceConfiguration = instanceConfiguration;
         this.syncRepository = syncRepository;
+        this.otherConsumers = instanceConfiguration.otherConsumers();
     }
 
     // TODO: now its synchronous -> it will be async
@@ -54,34 +56,36 @@ public class ConsumerSyncService {
                 }
             }
             // START elaborating
+            long startElaboration = new Date().getTime();
             syncRepository.save(new Sync(SYNC_ID, true, syncDate));
             log.info("started syncProcess {}", syncDate);
-            List<MongoFragment> mongoFragmentsToSync = fragmentRepository.getNotSynced(syncDate, 500); // TODO: add configuration
+            List<MongoFragment> mongoFragmentsToSync = fragmentRepository.getNotSynced(syncDate, 1000); // TODO: add configuration
             log.info("founded {} fragments to sync", mongoFragmentsToSync.size());
-            for (MongoFragment mongoFragment: mongoFragmentsToSync) {
-                log.info("sync fragment {} {}",mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+            for (MongoFragment mongoFragment : mongoFragmentsToSync) {
+                log.info("sync fragment {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
                 try {
                     boolean allSuccess = true;
-                    for (RoutingElement routingElement: otherConsumers()) {
-                        log.info("call {} for {} {}",routingElement.getName(), mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                    for (RoutingElement routingElement : otherConsumers) {
+                        log.info("call {} for {} {}", routingElement.getName(), mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
                         boolean success = sendToConsumer(routingElement, mongoFragment);
                         if (!success) {
                             allSuccess = false;
                         }
                     }
                     if (allSuccess) {
-                        log.info("sync fragment with SUCCESS {} {}",mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                        log.info("sync fragment with SUCCESS {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
                         fragmentRepository.save(new MongoFragment(mongoFragment, true));//TODO: update only synced
                     } else {
-                        log.warn("sync fragment with ERROR {} {}",mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+                        log.warn("sync fragment with ERROR {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
                     }
-                }catch (Exception e) {
+                } catch (Exception e) {
                     log.error("error for sync {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
                 }
             }
             // END elaborating
             syncRepository.save(new Sync(SYNC_ID, false, syncDate));
-        }catch (Exception e) {
+            log.info("syncProcess ended, elaborationTime = {}ms", new Date().getTime() - startElaboration);
+        } catch (Exception e) {
             log.error("error in sync process", e);
         }
     }
@@ -95,9 +99,6 @@ public class ConsumerSyncService {
                 instanceConfiguration.getConsumersFragmentUrl();
     }
 
-    public List<RoutingElement> otherConsumers() {
-        return consumerRoutingTable.getRoutingTable().stream().filter(e -> !e.getName().equals(instanceConfiguration.getInstanceName())).collect(Collectors.toList());
-    }
 
     private boolean sendToConsumer(RoutingElement routingElement, Fragment fragment) {
         String url = consumerFragmentUrl(routingElement);

@@ -6,8 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringMongoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringMongoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/config/InstanceConfigurationImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,15 +101,13 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.ProducerTest.runPolling">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -207,10 +216,10 @@
       <item itemvalue="JUnit.ProducerTest" />
       <item itemvalue="JUnit.ProducerTest.contextLoads" />
       <item itemvalue="JUnit.ProducerTest.runPolling" />
+      <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
       <item itemvalue="Spring Boot.ProducerServiceApplication" />
       <item itemvalue="Spring Boot.AtmServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
-      <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
     </list>
     <recent_temporary>
       <list>
@@ -233,7 +242,8 @@
       <workItem from="1629758263531" duration="1433000" />
       <workItem from="1629790756712" duration="8361000" />
       <workItem from="1629799137772" duration="4857000" />
-      <workItem from="1629807581924" duration="33302000" />
+      <workItem from="1629807581924" duration="33354000" />
+      <workItem from="1629883431935" duration="4509000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -291,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629850231255</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix shared folder">
+      <created>1629853590009</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1629853590009</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +335,8 @@
     <MESSAGE value="dev" />
     <MESSAGE value="find or replace in fragments&#10;fix on length files" />
     <MESSAGE value="add syncronous sync (but sequential... try to use fake response)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add syncronous sync (but sequential... try to use fake response)" />
+    <MESSAGE value="fix shared folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix shared folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

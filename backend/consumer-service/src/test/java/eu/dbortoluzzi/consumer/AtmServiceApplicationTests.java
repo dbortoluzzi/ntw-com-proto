@@ -1,5 +1,6 @@
 package eu.dbortoluzzi.consumer;
 
+import eu.dbortoluzzi.consumer.config.InstanceConfiguration;
 import eu.dbortoluzzi.consumer.model.Address;
 import eu.dbortoluzzi.consumer.model.AtmIndexable;
 import eu.dbortoluzzi.consumer.model.RoutingElement;
@@ -36,6 +37,9 @@ public class AtmServiceApplicationTests {
 	@Autowired
 	ConsumerSyncService consumerSyncService;
 
+	@Autowired
+	InstanceConfiguration instanceConfiguration;
+
 	@Test
 	public void contextLoads() {
 		log.info("contextLoads");
@@ -52,7 +56,7 @@ public class AtmServiceApplicationTests {
 		for (RoutingElement routingElement: consumerRoutingTable.getRoutingTable()) {
 			log.info(routingElement.toString());
 		}
-		for (RoutingElement routingElement: consumerSyncService.otherConsumers()) {
+		for (RoutingElement routingElement: instanceConfiguration.otherConsumers()) {
 			String url = consumerSyncService.consumerFragmentUrl(routingElement);
 			log.info("fragment url: {}", url);
 		}

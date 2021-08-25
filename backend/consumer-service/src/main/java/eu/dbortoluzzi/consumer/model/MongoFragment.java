@@ -20,16 +20,16 @@ public class MongoFragment extends Fragment {
     private String uniqueFileName;
     private Boolean synced;
 
-    public MongoFragment(Fragment fragment, String id, Date creationDate) {
+    public MongoFragment(Fragment fragment, String id, Date creationDate, Boolean synced) {
         super(fragment.getPayload(), fragment.getTimestamp(), fragment.getFilename(), fragment.getTotal(), fragment.getIndex());
         this.id = id;
         this.creationDate = creationDate;
         this.uniqueFileName = generateUniqueFileName();
+        this.synced = synced;
     }
 
     public MongoFragment(MongoFragment mongoFragment, Boolean synced) {
-        this(mongoFragment, mongoFragment.id, mongoFragment.creationDate);
-        this.synced = synced;
+        this(mongoFragment, mongoFragment.id, mongoFragment.creationDate, synced);
     }
 
     private String generateUniqueFileName() {
