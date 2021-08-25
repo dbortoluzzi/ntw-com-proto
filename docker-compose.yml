@@ -37,6 +37,8 @@ services:
     depends_on:
       - db
       - consumer-service
+    volumes:
+      - /home/daniele/ntw-com-proto:/home/daniele/ntw-com-proto:rw
     networks:
       - app-network
 

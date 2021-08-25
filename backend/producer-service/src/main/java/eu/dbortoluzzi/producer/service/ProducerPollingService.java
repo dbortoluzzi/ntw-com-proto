@@ -29,8 +29,14 @@ public class ProducerPollingService {
 
         Path path = Paths.get(instanceConfiguration.getPollingPath());
         try {
-            Files.createDirectories(path);
-        }catch (Exception e) {}
+            File file = path.toFile();
+            file.mkdirs();
+            file.setWritable(true, false);
+            file.setReadable(true, false);
+            file.setExecutable(true,false);
+        }catch (Exception e) {
+            log.error("error creating path", e);
+        }
 
         path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
 
