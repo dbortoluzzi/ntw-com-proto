@@ -1,8 +1,3 @@
-external:
-  services:
-    consumer:
-      url: https://www.dropbox.com/s/6fg0k2wxwrheyqk/ATMs?dl=1
-
 routingTable:
   - name: ntw-com-proto_consumer-service_1
     master: true

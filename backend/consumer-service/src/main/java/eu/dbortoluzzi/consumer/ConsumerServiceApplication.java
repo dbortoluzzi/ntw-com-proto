@@ -16,31 +16,39 @@ import java.util.TimerTask;
 @SpringBootApplication
 @EnableSwagger2
 @Slf4j
-public class AtmServiceApplication {
+public class ConsumerServiceApplication {
 
+	public static final long DELAY = 2000L;
 	private boolean firstSync = true;
 
 	@Autowired
 	private InstanceConfiguration instanceConfiguration;
 
 	@Autowired
-	private AtmDataSeeder atmDataSeeder;
-
-	@Autowired
 	private ConsumerSyncService consumerSyncService;
+
+//	@Bean
+//	public Executor asyncExecutor() {
+//		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+//		executor.setCorePoolSize(15);
+//		executor.setMaxPoolSize(15);
+//		executor.setQueueCapacity(500);
+//		executor.setThreadNamePrefix("CONSUMER-");
+//		executor.initialize();
+//		return executor;
+//	}
 	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = 
-				SpringApplication.run(AtmServiceApplication.class, args);
+				SpringApplication.run(ConsumerServiceApplication.class, args);
 		
-		AtmServiceApplication app =
-				context.getBean(AtmServiceApplication.class);
+		ConsumerServiceApplication app =
+				context.getBean(ConsumerServiceApplication.class);
 		app.init();
 	}
 	
 	public void init() {
 		log.info("starting for instance {}", instanceConfiguration.getInstanceName());
-//		atmDataSeeder.seedIfEmpty();
 
 		TimerTask task = new TimerTask() {
 			public void run() {
@@ -51,7 +59,7 @@ public class AtmServiceApplication {
 		};
 		Timer timer = new Timer("Timer");
 
-		long delay = 10000L;
+		long delay = DELAY;
 		timer.scheduleAtFixedRate(task, delay, delay);
 	}
 
