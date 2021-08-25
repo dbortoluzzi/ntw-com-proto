@@ -5,15 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryCustom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_2_0_1_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/ConsumerRoutingTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config/InstanceConfigurationImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/RoutingElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/Sync.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/SyncRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/SyncRepositoryCustom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ntw-com-proto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ntw-com-proto.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/Fragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/AtmServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/resources/application-test.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/resources/application-test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/ProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/test/java/eu/dbortoluzzi/producer/ProducerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +73,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/producer-service/src/test/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -73,18 +84,20 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer" />
       <recent name="$PROJECT_DIR$/backend/producer-service/src/test/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/config" />
       <recent name="$PROJECT_DIR$/backend/auth-service/src/test/resources" />
       <recent name="$PROJECT_DIR$/backend/consumer-service/src/test/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="eu.dbortoluzzi.consumer.repository" />
+      <recent name="eu.dbortoluzzi.consumer.model" />
+      <recent name="eu.dbortoluzzi.consumer.service" />
       <recent name="eu.dbortoluzzi.consumer.controller" />
       <recent name="eu.dbortoluzzi.commons.model" />
-      <recent name="eu.dbortoluzzi.producer" />
-      <recent name="eu.dbortoluzzi.producer.config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -119,6 +132,22 @@
       <option name="PACKAGE_NAME" value="eu.dbortoluzzi.consumer" />
       <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.consumer.AtmServiceApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AtmServiceApplicationTests.sync" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="consumer-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eu.dbortoluzzi.consumer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eu.dbortoluzzi.consumer" />
+      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.consumer.AtmServiceApplicationTests" />
+      <option name="METHOD_NAME" value="sync" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -193,19 +222,21 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.AtmServiceApplicationTests" />
-      <item itemvalue="Spring Boot.ProducerServiceApplication" />
-      <item itemvalue="Spring Boot.AtmServiceApplication" />
-      <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="JUnit.ProducerTest" />
       <item itemvalue="JUnit.ProducerTest.contextLoads" />
       <item itemvalue="JUnit.ProducerTest.runPolling" />
+      <item itemvalue="Spring Boot.ProducerServiceApplication" />
+      <item itemvalue="Spring Boot.AtmServiceApplication" />
+      <item itemvalue="Spring Boot.AuthServiceApplication" />
+      <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ProducerTest.runPolling" />
+        <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
+        <item itemvalue="JUnit.AtmServiceApplicationTests" />
         <item itemvalue="JUnit.ProducerTest.contextLoads" />
         <item itemvalue="JUnit.ProducerTest" />
-        <item itemvalue="JUnit.AtmServiceApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +251,7 @@
       <workItem from="1629758263531" duration="1433000" />
       <workItem from="1629790756712" duration="8361000" />
       <workItem from="1629799137772" duration="4857000" />
-      <workItem from="1629807581924" duration="20199000" />
+      <workItem from="1629807581924" duration="29702000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -264,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629834976291</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="find or replace in fragments&#10;fix on length files">
+      <created>1629840785792</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1629840785792</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +327,8 @@
     <MESSAGE value="add reader file" />
     <MESSAGE value="add fragment model" />
     <MESSAGE value="dev" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev" />
+    <MESSAGE value="find or replace in fragments&#10;fix on length files" />
+    <option name="LAST_COMMIT_MESSAGE" value="find or replace in fragments&#10;fix on length files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -3,11 +3,14 @@ package eu.dbortoluzzi.consumer.repository;
 import eu.dbortoluzzi.consumer.model.MongoFragment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -30,5 +33,13 @@ public class FragmentRepositoryImpl implements FragmentRepositoryCustom {
         } else {
             log.info("fragment already present: uniqueFileName = {}, index = {}", fragment.getUniqueFileName(), fragment.getIndex());
         }
+    }
+
+    @Override
+    public List<MongoFragment> getNotSynced(Date syncedDate, Integer limit) {
+        Query query = new Query().with(PageRequest.of(0, limit));
+        query.addCriteria(Criteria.where("synced").is(null));
+
+        return mongoTemplate.find(query, MongoFragment.class);
     }
 }

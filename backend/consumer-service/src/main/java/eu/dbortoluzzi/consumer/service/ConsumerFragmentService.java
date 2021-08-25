@@ -41,7 +41,7 @@ public class ConsumerFragmentService {
     }
 
     public void addFragment(Fragment fragment, Date receivingDate) {
-        fragmentRepository.insertIfNotExists(new MongoFragment(fragment, receivingDate));
+        fragmentRepository.insertIfNotExists(new MongoFragment(fragment, null, receivingDate));
     }
 
     public boolean isValidFragment(Fragment fragment) {

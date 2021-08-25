@@ -2,8 +2,10 @@ package eu.dbortoluzzi.consumer;
 
 import eu.dbortoluzzi.consumer.model.Address;
 import eu.dbortoluzzi.consumer.model.AtmIndexable;
+import eu.dbortoluzzi.consumer.model.RoutingElement;
 import eu.dbortoluzzi.consumer.repository.AtmsRepository;
 import eu.dbortoluzzi.consumer.repository.AtmsRepositoryCustom;
+import eu.dbortoluzzi.consumer.service.ConsumerSyncService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -28,6 +30,12 @@ public class AtmServiceApplicationTests {
 	@Autowired
 	AtmsRepository atmsRepository;
 
+	@Autowired
+	ConsumerRoutingTable consumerRoutingTable;
+
+	@Autowired
+	ConsumerSyncService consumerSyncService;
+
 	@Test
 	public void contextLoads() {
 		log.info("contextLoads");
@@ -35,5 +43,18 @@ public class AtmServiceApplicationTests {
 		Page<AtmIndexable> page = atmsRepositoryCustom.search("ING", PageRequest.of(0, 100));
 		Assert.assertEquals(page.getTotalElements(), 1);
 		Assert.assertEquals(page.getContent().get(0).getType(), "ING");
+	}
+
+	@Test
+	public void sync() {
+		log.info("sync");
+		Assert.assertTrue(consumerRoutingTable.getRoutingTable().size() > 0);
+		for (RoutingElement routingElement: consumerRoutingTable.getRoutingTable()) {
+			log.info(routingElement.toString());
+		}
+		for (RoutingElement routingElement: consumerSyncService.otherConsumers()) {
+			String url = consumerSyncService.consumerFragmentUrl(routingElement);
+			log.info("fragment url: {}", url);
+		}
 	}
 }

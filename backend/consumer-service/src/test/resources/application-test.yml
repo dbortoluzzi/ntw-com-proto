@@ -2,3 +2,15 @@ external:
   services:
     consumer:
       url: https://www.dropbox.com/s/6fg0k2wxwrheyqk/ATMs?dl=1
+
+routingTable:
+  - name: ntw-com-proto_consumer-service_1
+    master: true
+  - name: ntw-com-proto_consumer-service_2
+    master: false
+
+consumers:
+  url:
+    fragment: api/consumer/fragment
+  port:
+    fragment: 8080
