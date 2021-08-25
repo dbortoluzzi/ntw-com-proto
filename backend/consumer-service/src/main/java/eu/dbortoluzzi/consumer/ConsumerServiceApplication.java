@@ -7,19 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Executor;
 
 @SpringBootApplication
 @EnableSwagger2
 @Slf4j
-public class AtmServiceApplication {
+public class ConsumerServiceApplication {
 
 	public static final long DELAY = 2000L;
 	private boolean firstSync = true;
@@ -43,10 +40,10 @@ public class AtmServiceApplication {
 	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = 
-				SpringApplication.run(AtmServiceApplication.class, args);
+				SpringApplication.run(ConsumerServiceApplication.class, args);
 		
-		AtmServiceApplication app =
-				context.getBean(AtmServiceApplication.class);
+		ConsumerServiceApplication app =
+				context.getBean(ConsumerServiceApplication.class);
 		app.init();
 	}
 	
