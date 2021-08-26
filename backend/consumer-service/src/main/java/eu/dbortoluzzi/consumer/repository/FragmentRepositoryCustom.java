@@ -11,5 +11,5 @@ import java.util.List;
 public interface FragmentRepositoryCustom {
     public void insertIfNotExists(MongoFragment fragment);
     public List<MongoFragment> getNotSynced(Date syncedDate, Integer limit);
-    public List<StatisticsCounter> countFragmentBy(Date startSearch, Long elapsedInSeconds, Criteria criteria);
+    public List<StatisticsCounter> countFragmentFiltered(Date from, Date to, Long elapsedInSeconds, Criteria criteria);
 }

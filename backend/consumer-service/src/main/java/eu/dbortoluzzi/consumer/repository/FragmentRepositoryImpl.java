@@ -47,17 +47,20 @@ public class FragmentRepositoryImpl implements FragmentRepositoryCustom {
     }
 
     @Override
-    public List<StatisticsCounter> countFragmentBy(Date startSearch, Long elapsedInSeconds, Criteria criteria) {
+    public List<StatisticsCounter> countFragmentFiltered(Date from, Date to, Long elapsedInSeconds, Criteria criteria) {
         List<StatisticsCounter> statisticsCountersRequest = new ArrayList<>();
 
         Calendar calendarStartSearch = Calendar.getInstance();
-        calendarStartSearch.setTime(startSearch);
+        calendarStartSearch.setTime(from);
 
         Calendar startAuxSearch = Calendar.getInstance();
-        startAuxSearch.setTime(startSearch);
+        startAuxSearch.setTime(from);
 
-        Calendar now = Calendar.getInstance();
-        while (startAuxSearch.before(now)) {
+        Calendar endSearch = Calendar.getInstance();
+        if (endSearch.getTime().after(to)) {
+            endSearch.setTime(to);
+        }
+        while (startAuxSearch.before(endSearch)) {
             Calendar endDateAux = Calendar.getInstance();
             endDateAux.setTime(new Date(startAuxSearch.getTimeInMillis() + (elapsedInSeconds * 1000)));
             statisticsCountersRequest.add(

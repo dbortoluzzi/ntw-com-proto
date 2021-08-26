@@ -15,5 +15,5 @@ public class StatisticsCounter {
     private Date startDate;
     @JsonFormat(pattern="yyyyMMddHHmmss")
     private Date endDate;
-    private Long counter;
+    private Long count;
 }

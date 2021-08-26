@@ -55,7 +55,7 @@ public class ConsumerFragmentService {
         return fragmentValidationStrategy.isValid(fragment);
     }
 
-    public List<StatisticsCounter> countSyncedFragmentsBy(Date startSearch, Long elapsedInSeconds) {
-        return fragmentRepository.countFragmentBy(startSearch, elapsedInSeconds, Criteria.where("synced").is(true));
+    public List<StatisticsCounter> countSyncedFragments(Date from, Date to, Long elapsedInSeconds) {
+        return fragmentRepository.countFragmentFiltered(from, to, elapsedInSeconds, Criteria.where("synced").is(true));
     }
 }

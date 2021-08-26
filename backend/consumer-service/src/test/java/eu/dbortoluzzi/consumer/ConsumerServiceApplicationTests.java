@@ -1,13 +1,9 @@
 package eu.dbortoluzzi.consumer;
 
-import eu.dbortoluzzi.commons.model.Fragment;
 import eu.dbortoluzzi.commons.model.RoutingElement;
 import eu.dbortoluzzi.consumer.config.InstanceConfiguration;
-import eu.dbortoluzzi.consumer.model.MongoFragment;
 import eu.dbortoluzzi.consumer.model.StatisticsCounter;
 import eu.dbortoluzzi.consumer.repository.FragmentRepository;
-import eu.dbortoluzzi.consumer.repository.FragmentRepositoryCustom;
-import eu.dbortoluzzi.consumer.service.ConsumerFragmentService;
 import eu.dbortoluzzi.consumer.service.ConsumerSyncService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -16,13 +12,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -55,7 +47,7 @@ public class ConsumerServiceApplicationTests {
 		Calendar startCal = Calendar.getInstance();
 		startCal.set(Calendar.MINUTE, startCal.get(Calendar.MINUTE) - 10);
 
-		List<StatisticsCounter> statisticsCounters = fragmentRepository.countFragmentBy(startCal.getTime(), 60L, null);
+		List<StatisticsCounter> statisticsCounters = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, null);
 	}
 
 	@Test
