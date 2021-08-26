@@ -1,9 +1,8 @@
 package eu.dbortoluzzi.consumer;
 
-import eu.dbortoluzzi.commons.model.Fragment;
 import eu.dbortoluzzi.commons.model.RoutingElement;
 import eu.dbortoluzzi.consumer.config.InstanceConfiguration;
-import eu.dbortoluzzi.consumer.model.MongoFragment;
+import eu.dbortoluzzi.consumer.model.StatisticsCounter;
 import eu.dbortoluzzi.consumer.repository.FragmentRepository;
 import eu.dbortoluzzi.consumer.service.ConsumerSyncService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,12 +12,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Date;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest()
@@ -35,9 +32,21 @@ public class ConsumerServiceApplicationTests {
 	@Autowired
 	InstanceConfiguration instanceConfiguration;
 
+	@Autowired
+	FragmentRepository fragmentRepository;
+
 	@Test
 	public void contextLoads() {
 		log.info("contextLoads");
+	}
+
+	@Test
+	public void testStatistics() {
+		Calendar startCal = Calendar.getInstance();
+		startCal.set(Calendar.MINUTE, startCal.get(Calendar.MINUTE) - 10);
+
+		List<StatisticsCounter> statisticsCounters = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, MongoDbCriteriaUtils.producersInFilter(Collections.singletonList("localhost")));
+		List<StatisticsCounter> statisticsCounters2 = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, MongoDbCriteriaUtils.consumersInOrNotFilter(Collections.singletonList("localhost")).andOperator(MongoDbCriteriaUtils.producersInFilter(Collections.singletonList("localhost"))));
 	}
 
 	@Test
@@ -48,7 +57,7 @@ public class ConsumerServiceApplicationTests {
 			log.info(routingElement.toString());
 		}
 		for (RoutingElement routingElement: instanceConfiguration.otherConsumers()) {
-			String url = consumerSyncService.consumerFragmentUrl(routingElement);
+			String url = consumerSyncService.prepareConsumerFragmentUrl(routingElement);
 			log.info("fragment url: {}", url);
 		}
 	}
