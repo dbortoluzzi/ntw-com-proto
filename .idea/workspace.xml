@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/MongoDbCriteriaUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/MongoDbCriteriaUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/MongoDbCriteriaUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +74,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.11507481" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/frontend-app/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -269,7 +274,7 @@
       <workItem from="1629883431935" duration="8384000" />
       <workItem from="1629927301659" duration="179000" />
       <workItem from="1629927765461" duration="4080000" />
-      <workItem from="1629967538172" duration="6438000" />
+      <workItem from="1629967538172" duration="11462000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -397,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629972431891</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add filter producer">
+      <created>1629973987768</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1629973987768</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +446,8 @@
     <MESSAGE value="parallelize consumer" />
     <MESSAGE value="init statistics" />
     <MESSAGE value="dev statistics" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev statistics" />
+    <MESSAGE value="add filter producer" />
+    <option name="LAST_COMMIT_MESSAGE" value="add filter producer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

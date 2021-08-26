@@ -45,7 +45,8 @@ public class ConsumerServiceApplicationTests {
 		Calendar startCal = Calendar.getInstance();
 		startCal.set(Calendar.MINUTE, startCal.get(Calendar.MINUTE) - 10);
 
-		List<StatisticsCounter> statisticsCounters = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, MongoDbCriteriaUtils.producersFilter(Collections.singletonList("localhost")));
+		List<StatisticsCounter> statisticsCounters = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, MongoDbCriteriaUtils.producersInFilter(Collections.singletonList("localhost")));
+		List<StatisticsCounter> statisticsCounters2 = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, MongoDbCriteriaUtils.consumersInOrNotFilter(Collections.singletonList("localhost")).andOperator(MongoDbCriteriaUtils.producersInFilter(Collections.singletonList("localhost"))));
 	}
 
 	@Test
@@ -56,7 +57,7 @@ public class ConsumerServiceApplicationTests {
 			log.info(routingElement.toString());
 		}
 		for (RoutingElement routingElement: instanceConfiguration.otherConsumers()) {
-			String url = consumerSyncService.consumerFragmentUrl(routingElement);
+			String url = consumerSyncService.prepareConsumerFragmentUrl(routingElement);
 			log.info("fragment url: {}", url);
 		}
 	}

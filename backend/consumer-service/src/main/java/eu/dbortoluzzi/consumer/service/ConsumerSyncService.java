@@ -16,6 +16,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -77,7 +78,7 @@ public class ConsumerSyncService {
     }
 
     private void syncFragmentInSynchronousWay(MongoFragment mongoFragment) {
-        log.info("sync fragment {} {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
+        log.info("sync fragment = {}, index = {}", mongoFragment.getUniqueFileName(), mongoFragment.getIndex());
         List<String> syncedWithSuccess = new ArrayList<>();
         List<String> instancesAlreadySynced = Optional.ofNullable(mongoFragment.getInstancesSynced()).orElse(new ArrayList<>());
         boolean synced = false;
@@ -108,21 +109,20 @@ public class ConsumerSyncService {
         }
     }
 
-    public String consumerFragmentUrl(RoutingElement routingElement) {
-        return "http://" +
-                routingElement.getName() +
-                ":" +
-                instanceConfiguration.getConsumersPort() +
-                "/" +
-                instanceConfiguration.getConsumersFragmentUrl();
-    }
-
-
     private boolean sendToConsumer(RoutingElement routingElement, Fragment fragment) {
-        String url = consumerFragmentUrl(routingElement);
-        String result = instanceConfiguration.restTemplate().postForObject(url.concat("/CHECKSUM"), StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8)), String.class);
+        String url = prepareConsumerFragmentUrl(routingElement);
+        String result = instanceConfiguration.restTemplate().postForObject(url, StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8)), String.class);
         log.info("RESULT CONSUMER: {}", result);
         return "OK".equals(result);
+    }
+
+    // TODO: CHECKSUM
+    public String prepareConsumerFragmentUrl(RoutingElement routingElement) {
+        return MessageFormat.format("http://{0}:{1}/{2}/{3}/CHECKSUM",
+                routingElement.getName(),
+                instanceConfiguration.getConsumersPort(),
+                instanceConfiguration.getConsumersFragmentUrl(),
+                instanceConfiguration.getInstanceName());
     }
 
     @SneakyThrows

@@ -11,7 +11,6 @@ import eu.dbortoluzzi.commons.utils.StringUtils;
 import eu.dbortoluzzi.producer.config.InstanceConfiguration;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -20,10 +19,10 @@ import org.springframework.web.client.RestTemplate;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -94,14 +93,8 @@ public class ProducerFragmentService {
         for (RoutingElement routingElement: instanceConfiguration.consumers()){
             String url = "";
             try {
-                url = new StringBuilder()
-                                .append("http://")
-                                .append(routingElement.getName())
-                                .append(":")
-                                .append(fragmentsPort)
-                                .append("/")
-                                .append(fragmentsUrl).toString();
-                String result = restTemplate.postForObject(url.concat("/CHECKSUM"), StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8)), String.class);
+                url = prepareConsumerFragmentUrl(routingElement);
+                String result = restTemplate.postForObject(url, StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8)), String.class);
                 log.info("RESULT CONSUMER for {} : {}", routingElement.getName(), result);
                 if ("OK".equals(result)) {
                     return true;
@@ -119,6 +112,16 @@ public class ProducerFragmentService {
         Fragment fragment = createFragment(counter, totalFragment, instanceConfiguration.getInstanceName(), file.getName(), timestamp, buffer);
         CompletableFuture<Boolean> completableFuture = sendToConsumerParallel(fragment);
         completableFutureList.add(completableFuture);
+    }
+
+    // TODO: CHECKSUM
+    private String prepareConsumerFragmentUrl(RoutingElement routingElement) {
+        String url;
+        url = MessageFormat.format("http://{0}:{1}/{2}/CHECKSUM",
+                routingElement.getName(),
+                fragmentsPort,
+                fragmentsUrl);
+        return url;
     }
 
 }
