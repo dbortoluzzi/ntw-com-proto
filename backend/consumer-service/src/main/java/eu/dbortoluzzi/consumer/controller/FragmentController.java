@@ -16,9 +16,12 @@ import java.util.List;
 
 @RestController
 @Slf4j
+// TODO: move checksum to HTTP HEADER
 public class FragmentController {
 
 	public static final String PATTERN_DATETIME = "yyyyMMddHHmmss";
+	public static double FAKE_ERROR_PROBABILITY = 0;
+	public static double FAKE_SYNC_ERROR_PROBABILITY = 0;
 	@Autowired
 	ConsumerFragmentService consumerFragmentService;
 
@@ -26,6 +29,10 @@ public class FragmentController {
 	@ResponseStatus(HttpStatus.OK)
 	@CrossOrigin
 	public ResponseEntity<String> sendFragment(@RequestBody String data, @PathVariable  String checksum){
+		if (fakeProbabilityError() < FAKE_ERROR_PROBABILITY) {
+			log.error("sendFragment: fake error for checksum {}", checksum);
+			return new ResponseEntity<>("KO", HttpStatus.SERVICE_UNAVAILABLE);
+		}
 		if (data == null || !StringUtils.md5sum(data).equals(checksum)) {
 			log.error("sendFragment: error for checksum {}", checksum);
 			return new ResponseEntity<>("KO", HttpStatus.BAD_REQUEST);
@@ -44,6 +51,10 @@ public class FragmentController {
 	@ResponseStatus(HttpStatus.OK)
 	@CrossOrigin
 	public ResponseEntity<String> sendFragmentForSync(@RequestBody String data, @PathVariable  String syncedFromInstance, @PathVariable  String checksum){
+		if (fakeProbabilityError() < FAKE_SYNC_ERROR_PROBABILITY) {
+			log.error("sendFragmentForSync: fake error for checksum {}", checksum);
+			return new ResponseEntity<>("KO", HttpStatus.SERVICE_UNAVAILABLE);
+		}
 		if (data == null || !StringUtils.md5sum(data).equals(checksum)) {
 			log.error("sendFragment: error for checksum {}", checksum);
 			return new ResponseEntity<>("KO", HttpStatus.BAD_REQUEST);
@@ -99,5 +110,9 @@ public class FragmentController {
 			log.error("error statisticsFragmentByIntervalProducersAndConsumers", e);
 			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	private Double fakeProbabilityError() {
+		return Math.floor(Math.random()*100 + 1);
 	}
 }

@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/MongoDbCriteriaUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/MongoDbCriteriaUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="parallelizeProducer" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,6 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/consumer-service/src/main/resources" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -409,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629973987768</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add checksum on call">
+      <created>1629984279087</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1629984279087</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +448,8 @@
     <MESSAGE value="init statistics" />
     <MESSAGE value="dev statistics" />
     <MESSAGE value="add filter producer" />
-    <option name="LAST_COMMIT_MESSAGE" value="add filter producer" />
+    <MESSAGE value="add checksum on call" />
+    <option name="LAST_COMMIT_MESSAGE" value="add checksum on call" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -459,13 +461,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/it/dbortoluzzi/ntw-com-proto/commons/0.0.1-SNAPSHOT/commons-0.0.1-SNAPSHOT.jar!/eu/dbortoluzzi/commons/utils/MD5FragmentValidationStrategy.class</url>
-          <line>16</line>
+          <line>14</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/MD5FragmentValidationStrategy.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java</url>
