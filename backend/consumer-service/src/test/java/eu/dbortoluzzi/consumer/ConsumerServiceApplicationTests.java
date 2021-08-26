@@ -15,9 +15,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest()
@@ -47,7 +45,7 @@ public class ConsumerServiceApplicationTests {
 		Calendar startCal = Calendar.getInstance();
 		startCal.set(Calendar.MINUTE, startCal.get(Calendar.MINUTE) - 10);
 
-		List<StatisticsCounter> statisticsCounters = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, null);
+		List<StatisticsCounter> statisticsCounters = fragmentRepository.countFragmentFiltered(startCal.getTime(), new Date(), 60L, MongoDbCriteriaUtils.producersFilter(Collections.singletonList("localhost")));
 	}
 
 	@Test

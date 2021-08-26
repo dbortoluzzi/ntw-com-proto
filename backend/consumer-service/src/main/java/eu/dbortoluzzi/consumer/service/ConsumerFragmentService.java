@@ -5,6 +5,7 @@ import eu.dbortoluzzi.commons.model.Fragment;
 import eu.dbortoluzzi.commons.utils.FragmentValidationStrategy;
 import eu.dbortoluzzi.commons.utils.MD5FragmentValidationStrategy;
 import eu.dbortoluzzi.commons.utils.StringUtils;
+import eu.dbortoluzzi.consumer.MongoDbCriteriaUtils;
 import eu.dbortoluzzi.consumer.model.MongoFragment;
 import eu.dbortoluzzi.consumer.model.StatisticsCounter;
 import eu.dbortoluzzi.consumer.repository.FragmentRepository;
@@ -55,7 +56,7 @@ public class ConsumerFragmentService {
         return fragmentValidationStrategy.isValid(fragment);
     }
 
-    public List<StatisticsCounter> countSyncedFragments(Date from, Date to, Long elapsedInSeconds) {
-        return fragmentRepository.countFragmentFiltered(from, to, elapsedInSeconds, Criteria.where("synced").is(true));
+    public List<StatisticsCounter> countFragmentsFromProducers(Date from, Date to, List<String> filterProducers, Long elapsedInSeconds) {
+        return fragmentRepository.countFragmentFiltered(from, to, elapsedInSeconds, MongoDbCriteriaUtils.producersFilter(filterProducers));
     }
 }

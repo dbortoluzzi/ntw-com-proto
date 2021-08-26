@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @Slf4j
@@ -39,15 +38,20 @@ public class FragmentController {
 	@GetMapping("/api/consumer/fragment/statistics/{from}/{to}/{resolution}")
 	@ResponseStatus(HttpStatus.OK)
 	@CrossOrigin
-	public ResponseEntity<List<StatisticsCounter>> statisticsSyncedByInterval(@PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date from, @PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date to, @PathVariable Long resolution){
+	public ResponseEntity<List<StatisticsCounter>> statisticsFragmentByIntervalAndProducers(
+			@PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date from,
+			@PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date to,
+			@PathVariable Long resolution,
+			@RequestParam(required = false) List<String> filterProducers
+	){
 		if (from == null || to == null || resolution == null || to.before(from)) {
 			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
 		}
 		try {
-			List<StatisticsCounter> statisticsCounters = consumerFragmentService.countSyncedFragments(from, to, resolution*60);
+			List<StatisticsCounter> statisticsCounters = consumerFragmentService.countFragmentsFromProducers(from, to, filterProducers, resolution*60);
 			return new ResponseEntity<>(statisticsCounters, HttpStatus.OK);
 		}catch (Exception e) {
-			log.error("error sendFragment", e);
+			log.error("error statisticsFragmentByIntervalAndProducers", e);
 			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
