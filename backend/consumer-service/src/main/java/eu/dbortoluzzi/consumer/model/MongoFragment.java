@@ -23,6 +23,7 @@ import java.util.List;
 public class MongoFragment extends Fragment {
     @Id
     protected String id;
+    @Indexed
     private Date creationDate;
     private String uniqueFileName;
     @Indexed

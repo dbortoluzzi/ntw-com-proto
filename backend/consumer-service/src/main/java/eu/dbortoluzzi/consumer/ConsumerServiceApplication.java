@@ -6,12 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 @SpringBootApplication
 @EnableSwagger2
@@ -37,11 +39,23 @@ public class ConsumerServiceApplication {
 //		executor.initialize();
 //		return executor;
 //	}
-	
+
+	@Bean
+	public LocaleResolver localeResolver() {
+		SessionLocaleResolver slr = new SessionLocaleResolver();
+		slr.setDefaultLocale(Locale.ITALY);
+		return slr;
+	}
+
+	@Bean
+	public Jackson2ObjectMapperBuilderCustomizer initJackson() {
+		return builder -> builder.timeZone(TimeZone.getDefault());
+	}
+
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = 
+		ConfigurableApplicationContext context =
 				SpringApplication.run(ConsumerServiceApplication.class, args);
-		
+
 		ConsumerServiceApplication app =
 				context.getBean(ConsumerServiceApplication.class);
 		app.init();

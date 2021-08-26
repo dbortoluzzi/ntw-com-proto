@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/StatisticsCounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/AtmServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/ConsumerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/ConsumerServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/controller/FragmentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/model/MongoFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/ProducerServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongo.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/mongo.dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +71,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/producer-service/src/test/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/consumer-service/src/main/resources" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -72,6 +82,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/backend/producer-service/src/test/resources" />
       <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer" />
     </key>
@@ -95,19 +106,21 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ProducerTest.runPolling (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ConsumerServiceApplicationTests.testStatistics">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AtmServiceApplicationTests.sync" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConsumerServiceApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="consumer-service" />
       <extension name="coverage">
         <pattern>
@@ -116,9 +129,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="eu.dbortoluzzi.consumer" />
-      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.consumer.AtmServiceApplicationTests" />
-      <option name="METHOD_NAME" value="sync" />
+      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.consumer.ConsumerServiceApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea -ea -Dspring.profiles.active=test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsumerServiceApplicationTests.testStatistics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="consumer-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="eu.dbortoluzzi.consumer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="eu.dbortoluzzi.consumer" />
+      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.consumer.ConsumerServiceApplicationTests" />
+      <option name="METHOD_NAME" value="testStatistics" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea -ea -Dspring.profiles.active=test" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,22 +205,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProducerTest.runPolling" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="producer-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="eu.dbortoluzzi.producer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="eu.dbortoluzzi.producer" />
-      <option name="MAIN_CLASS_NAME" value="eu.dbortoluzzi.producer.ProducerTest" />
-      <option name="METHOD_NAME" value="runPolling" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="MAIN_CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
@@ -213,6 +228,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConsumerServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="consumer-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="eu.dbortoluzzi.consumer.ConsumerServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProducerServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="producer-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="eu.dbortoluzzi.producer.ProducerServiceApplication" />
@@ -221,22 +243,23 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ProducerTest.runPolling" />
-      <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
       <item itemvalue="JUnit.ProducerTest.contextLoads" />
+      <item itemvalue="JUnit.ProducerTest.contextLoads (1)" />
+      <item itemvalue="JUnit.ProducerTest.runPolling (1)" />
+      <item itemvalue="JUnit.ConsumerServiceApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.ConsumerServiceApplicationTests.testStatistics" />
       <item itemvalue="Spring Boot.ProducerServiceApplication" />
       <item itemvalue="Spring Boot.AtmServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
-      <item itemvalue="JUnit.ProducerTest.contextLoads (1)" />
-      <item itemvalue="JUnit.ProducerTest.runPolling (1)" />
+      <item itemvalue="Spring Boot.ConsumerServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ConsumerServiceApplicationTests.testStatistics" />
+        <item itemvalue="JUnit.ConsumerServiceApplicationTests.contextLoads" />
         <item itemvalue="JUnit.ProducerTest.runPolling (1)" />
         <item itemvalue="JUnit.ProducerTest.contextLoads (1)" />
         <item itemvalue="JUnit.ProducerTest.contextLoads" />
-        <item itemvalue="JUnit.AtmServiceApplicationTests.sync" />
-        <item itemvalue="JUnit.ProducerTest.runPolling" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +276,9 @@
       <workItem from="1629799137772" duration="4857000" />
       <workItem from="1629807581924" duration="33354000" />
       <workItem from="1629883431935" duration="8384000" />
+      <workItem from="1629927301659" duration="179000" />
+      <workItem from="1629927765461" duration="4080000" />
+      <workItem from="1629967538172" duration="2679000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -420,6 +446,11 @@
           <url>file://$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/MD5FragmentValidationStrategy.java</url>
           <line>12</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/consumer-service/src/test/java/eu/dbortoluzzi/consumer/ConsumerServiceApplicationTests.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java</url>

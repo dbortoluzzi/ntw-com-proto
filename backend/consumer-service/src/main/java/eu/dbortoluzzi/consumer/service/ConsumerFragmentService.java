@@ -6,15 +6,17 @@ import eu.dbortoluzzi.commons.utils.FragmentValidationStrategy;
 import eu.dbortoluzzi.commons.utils.MD5FragmentValidationStrategy;
 import eu.dbortoluzzi.commons.utils.StringUtils;
 import eu.dbortoluzzi.consumer.model.MongoFragment;
+import eu.dbortoluzzi.consumer.model.StatisticsCounter;
 import eu.dbortoluzzi.consumer.repository.FragmentRepository;
-import eu.dbortoluzzi.consumer.repository.FragmentRepositoryCustom;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -51,5 +53,9 @@ public class ConsumerFragmentService {
 
     public boolean isValidFragment(Fragment fragment) {
         return fragmentValidationStrategy.isValid(fragment);
+    }
+
+    public List<StatisticsCounter> countSyncedFragmentsBy(Date startSearch, Long elapsedInSeconds) {
+        return fragmentRepository.countFragmentBy(startSearch, elapsedInSeconds, Criteria.where("synced").is(true));
     }
 }
