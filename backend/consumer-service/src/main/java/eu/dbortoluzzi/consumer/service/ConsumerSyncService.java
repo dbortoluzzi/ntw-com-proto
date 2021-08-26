@@ -110,19 +110,20 @@ public class ConsumerSyncService {
     }
 
     private boolean sendToConsumer(RoutingElement routingElement, Fragment fragment) {
-        String url = prepareConsumerFragmentUrl(routingElement);
-        String result = instanceConfiguration.restTemplate().postForObject(url, StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8)), String.class);
+        String postData = StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8));
+        String url = prepareConsumerFragmentUrl(routingElement, StringUtils.md5sum(postData));
+        String result = instanceConfiguration.restTemplate().postForObject(url, postData, String.class);
         log.info("RESULT CONSUMER: {}", result);
         return "OK".equals(result);
     }
 
-    // TODO: CHECKSUM
-    public String prepareConsumerFragmentUrl(RoutingElement routingElement) {
-        return MessageFormat.format("http://{0}:{1}/{2}/{3}/CHECKSUM",
+    public String prepareConsumerFragmentUrl(RoutingElement routingElement, String checksum) {
+        return MessageFormat.format("http://{0}:{1}/{2}/{3}/{4}",
                 routingElement.getName(),
                 instanceConfiguration.getConsumersPort(),
                 instanceConfiguration.getConsumersFragmentUrl(),
-                instanceConfiguration.getInstanceName());
+                instanceConfiguration.getInstanceName(),
+                checksum);
     }
 
     @SneakyThrows

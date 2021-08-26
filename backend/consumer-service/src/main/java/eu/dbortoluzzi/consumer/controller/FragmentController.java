@@ -1,5 +1,6 @@
 package eu.dbortoluzzi.consumer.controller;
 
+import eu.dbortoluzzi.commons.utils.StringUtils;
 import eu.dbortoluzzi.consumer.model.StatisticsCounter;
 import eu.dbortoluzzi.consumer.service.ConsumerFragmentService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ import java.util.List;
 @Slf4j
 public class FragmentController {
 
+	public static final String PATTERN_DATETIME = "yyyyMMddHHmmss";
 	@Autowired
 	ConsumerFragmentService consumerFragmentService;
 
@@ -24,8 +26,11 @@ public class FragmentController {
 	@ResponseStatus(HttpStatus.OK)
 	@CrossOrigin
 	public ResponseEntity<String> sendFragment(@RequestBody String data, @PathVariable  String checksum){
-		// TODO: check checksum
-		log.info("sendFragment: for {}..., {}", data.substring(0, 5), checksum);
+		if (data == null || !StringUtils.md5sum(data).equals(checksum)) {
+			log.error("sendFragment: error for checksum {}", checksum);
+			return new ResponseEntity<>("KO", HttpStatus.BAD_REQUEST);
+		}
+		log.info("sendFragment: for {}", checksum);
 		try {
 			consumerFragmentService.addFragment(data, new Date());
 			return new ResponseEntity<>("OK", HttpStatus.OK);
@@ -35,12 +40,30 @@ public class FragmentController {
 		}
 	}
 
+	@PostMapping("/api/consumer/fragment/sync/{syncedFromInstance}/{checksum}")
+	@ResponseStatus(HttpStatus.OK)
+	@CrossOrigin
+	public ResponseEntity<String> sendFragmentForSync(@RequestBody String data, @PathVariable  String syncedFromInstance, @PathVariable  String checksum){
+		if (data == null || !StringUtils.md5sum(data).equals(checksum)) {
+			log.error("sendFragment: error for checksum {}", checksum);
+			return new ResponseEntity<>("KO", HttpStatus.BAD_REQUEST);
+		}
+		log.info("sendFragmentForSync: from {} for {}", syncedFromInstance, checksum);
+		try {
+			consumerFragmentService.addFragment(data, new Date(), true, syncedFromInstance);
+			return new ResponseEntity<>("OK", HttpStatus.OK);
+		}catch (Exception e) {
+			log.error("error sendFragmentForSync", e);
+			return new ResponseEntity<>("KO", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 	@GetMapping("/api/consumer/fragment/statistics/total/{from}/{to}/{resolution}")
 	@ResponseStatus(HttpStatus.OK)
 	@CrossOrigin
 	public ResponseEntity<List<StatisticsCounter>> statisticsFragmentByIntervalAndProducers(
-			@PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date from,
-			@PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date to,
+			@PathVariable @DateTimeFormat(pattern= PATTERN_DATETIME) Date from,
+			@PathVariable @DateTimeFormat(pattern= PATTERN_DATETIME) Date to,
 			@PathVariable Long resolution,
 			@RequestParam(required = false) List<String> filterProducers
 	){
@@ -59,9 +82,9 @@ public class FragmentController {
 	@GetMapping("/api/consumer/fragment/statistics/detailed/{from}/{to}/{resolution}")
 	@ResponseStatus(HttpStatus.OK)
 	@CrossOrigin
-	public ResponseEntity<List<StatisticsCounter>> statisticsFragmentByIntervalAndConsumers(
-			@PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date from,
-			@PathVariable @DateTimeFormat(pattern="yyyyMMddHHmmss") Date to,
+	public ResponseEntity<List<StatisticsCounter>> statisticsFragmentByIntervalProducersAndConsumers(
+			@PathVariable @DateTimeFormat(pattern= PATTERN_DATETIME) Date from,
+			@PathVariable @DateTimeFormat(pattern= PATTERN_DATETIME) Date to,
 			@PathVariable Long resolution,
 			@RequestParam(required = false) List<String> filterProducers,
 			@RequestParam(required = false) List<String> filterConsumers
@@ -73,23 +96,8 @@ public class FragmentController {
 			List<StatisticsCounter> statisticsCounters = consumerFragmentService.countFragmentsByProducersAndConsumers(from, to, filterProducers, filterConsumers, resolution*60);
 			return new ResponseEntity<>(statisticsCounters, HttpStatus.OK);
 		}catch (Exception e) {
-			log.error("error statisticsFragmentByIntervalAndProducers", e);
+			log.error("error statisticsFragmentByIntervalProducersAndConsumers", e);
 			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-
-	@PostMapping("/api/consumer/fragment/sync/{syncedFromInstance}/{checksum}")
-	@ResponseStatus(HttpStatus.OK)
-	@CrossOrigin
-	public ResponseEntity<String> sendFragmentForSync(@RequestBody String data, @PathVariable  String syncedFromInstance, @PathVariable  String checksum){
-		// TODO: check checksum
-		log.info("sendFragmentForSync: from {} for {}..., {}", syncedFromInstance, data.substring(0, 5), checksum);
-		try {
-			consumerFragmentService.addFragment(data, new Date(), true, syncedFromInstance);
-			return new ResponseEntity<>("OK", HttpStatus.OK);
-		}catch (Exception e) {
-			log.error("error sendFragmentForSync", e);
-			return new ResponseEntity<>("KO", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 }

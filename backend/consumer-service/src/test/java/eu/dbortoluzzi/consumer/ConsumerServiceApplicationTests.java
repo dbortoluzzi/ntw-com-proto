@@ -57,7 +57,7 @@ public class ConsumerServiceApplicationTests {
 			log.info(routingElement.toString());
 		}
 		for (RoutingElement routingElement: instanceConfiguration.otherConsumers()) {
-			String url = consumerSyncService.prepareConsumerFragmentUrl(routingElement);
+			String url = consumerSyncService.prepareConsumerFragmentUrl(routingElement, "CHECKSUM");
 			log.info("fragment url: {}", url);
 		}
 	}

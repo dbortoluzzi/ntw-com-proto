@@ -93,8 +93,9 @@ public class ProducerFragmentService {
         for (RoutingElement routingElement: instanceConfiguration.consumers()){
             String url = "";
             try {
-                url = prepareConsumerFragmentUrl(routingElement);
-                String result = restTemplate.postForObject(url, StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8)), String.class);
+                String postData = StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8));
+                url = prepareConsumerFragmentUrl(routingElement, StringUtils.md5sum(postData));
+                String result = restTemplate.postForObject(url, postData, String.class);
                 log.info("RESULT CONSUMER for {} : {}", routingElement.getName(), result);
                 if ("OK".equals(result)) {
                     return true;
@@ -114,13 +115,13 @@ public class ProducerFragmentService {
         completableFutureList.add(completableFuture);
     }
 
-    // TODO: CHECKSUM
-    private String prepareConsumerFragmentUrl(RoutingElement routingElement) {
+    private String prepareConsumerFragmentUrl(RoutingElement routingElement, String checksum) {
         String url;
-        url = MessageFormat.format("http://{0}:{1}/{2}/CHECKSUM",
+        url = MessageFormat.format("http://{0}:{1}/{2}/{3}",
                 routingElement.getName(),
                 fragmentsPort,
-                fragmentsUrl);
+                fragmentsUrl,
+                checksum);
         return url;
     }
 
