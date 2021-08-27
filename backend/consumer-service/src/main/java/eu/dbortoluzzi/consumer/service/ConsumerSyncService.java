@@ -60,7 +60,7 @@ public class ConsumerSyncService {
             syncRepository.save(new Sync(SYNC_ID, true, syncDate));
 
             log.info("started syncProcess {}", syncDate);
-            List<MongoFragment> mongoFragmentsToSync = fragmentRepository.getNotSynced(syncDate, MAX_NUM_FRAGMENTS_TO_SYNC);
+            List<MongoFragment> mongoFragmentsToSync = fragmentRepository.findNotSyncedFragments(syncDate, MAX_NUM_FRAGMENTS_TO_SYNC);
             log.info("founded {} fragments to sync", mongoFragmentsToSync.size());
             List<CompletableFuture<Void>> completableFutureList = mongoFragmentsToSync.stream().map(this::syncFragmentInAsyncWay).collect(Collectors.toList());
             CommonUtils.allOfCompletableFutures(completableFutureList).join();
