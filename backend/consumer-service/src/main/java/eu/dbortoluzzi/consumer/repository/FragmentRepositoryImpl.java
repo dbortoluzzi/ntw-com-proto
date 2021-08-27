@@ -38,7 +38,7 @@ public class FragmentRepositoryImpl implements FragmentRepositoryCustom {
     }
 
     @Override
-    public List<MongoFragment> getNotSynced(Date syncedDate, Integer limit) {
+    public List<MongoFragment> findNotSyncedFragments(Date syncedDate, Integer limit) {
         Query query = new Query().with(PageRequest.of(0, limit));
         query.addCriteria(Criteria.where("synced").is(false));
 

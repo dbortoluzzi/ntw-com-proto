@@ -5,143 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c99dd8a-db5f-456e-9b76-c0ad030bd66a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_0_1_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_0_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_0_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_0_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOCUMENTATION.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/AuthDataSeeder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/AuthServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/SpringMongoConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/model/UserForm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/service/IUserAuthenticationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/service/UUIDAuthenticationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/service/UserRegistrationService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/java/eu/dbortoluzzi/auth/utils/PasswordEncoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/test/java/eu/dbortoluzzi/auth/AuthServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/test/java/eu/dbortoluzzi/auth/TestMongoConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/test/resources/application-test.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/auth-service/src/test/resources/application-test.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build-backend.sh" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build-backend.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/Fragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/model/Fragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringMongoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/SpringMongoConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerFragmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerFragmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/producer-service/src/main/java/eu/dbortoluzzi/producer/service/ProducerPollingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/single-host.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/single-host.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/build-frontend.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/e2e/protractor.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/e2e/src/app.e2e-spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/e2e/src/app.po.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/e2e/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/karma.conf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/ngsw-config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/app-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/atm.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/atm.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/authentication.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/authentication.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/core.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/footer/footer.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/footer/footer.component.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/footer/footer.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/header/header.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/header/header.component.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/header/header.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/interceptors/auth.guard.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/core/interceptors/auth.interceptor.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/atm-table/atm-table.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/atm-table/atm-table.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/atm-table/atm-table.component.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/atm-table/atm-table.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/container/container.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/container/container.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/container/container.component.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/container/container.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/container/container.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/home/home-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/home/home.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/home/home.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/home/home.component.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/home/home.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/home/home.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/login/login-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/login/login.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/login/login.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/login/login.component.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/login/login.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/main/login/login.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/model/atm.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/app/model/user.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DIN-Bold.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DIN-Italic.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DIN.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DINCondensed-Bold.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DINCondensed.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DINExp-Bold.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DINExp-Italic.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/D-DINExp.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/fonts/SIL Open Font License.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-128x128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-144x144.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-152x152.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-384x384.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-72x72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/icons/icon-96x96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/images/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/assets/styles/variables.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/environments/environment.develop.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/environments/environment.prod.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/environments/environment.test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/environments/environment.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/manifest.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/polyfills.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/styles.styl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/src/test.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/tsconfig.spec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/frontend-app/tslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/commons/src/main/java/eu/dbortoluzzi/commons/utils/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/repository/FragmentRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer/service/ConsumerSyncService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +65,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/consumer-service/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -207,6 +77,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/resources" />
       <recent name="$PROJECT_DIR$/backend/producer-service/src/test/resources" />
       <recent name="$PROJECT_DIR$/backend/consumer-service/src/main/java/eu/dbortoluzzi/consumer" />
@@ -402,7 +273,7 @@
       <workItem from="1629927301659" duration="179000" />
       <workItem from="1629927765461" duration="4080000" />
       <workItem from="1629967538172" duration="11462000" />
-      <workItem from="1630051838634" duration="3913000" />
+      <workItem from="1630051838634" duration="13065000" />
     </task>
     <task id="LOCAL-00001" summary="db embedded">
       <created>1629796029612</created>
@@ -551,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629984993277</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor">
+      <created>1630059211968</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1630059211968</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +469,8 @@
     <MESSAGE value="add filter producer" />
     <MESSAGE value="add checksum on call" />
     <MESSAGE value="add fake probability" />
-    <option name="LAST_COMMIT_MESSAGE" value="add fake probability" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
