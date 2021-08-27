@@ -13,6 +13,6 @@ public class Fragment {
     private Payload payload;
     private Date timestamp;
     private String filename;
-    private Integer total;
-    private Integer index;
+    private Long total;
+    private Long index;
 }

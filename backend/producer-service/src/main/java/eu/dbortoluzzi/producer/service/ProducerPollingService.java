@@ -1,6 +1,5 @@
 package eu.dbortoluzzi.producer.service;
 
-import eu.dbortoluzzi.commons.model.Fragment;
 import eu.dbortoluzzi.commons.utils.CommonUtils;
 import eu.dbortoluzzi.producer.config.InstanceConfiguration;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j

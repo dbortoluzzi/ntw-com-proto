@@ -34,7 +34,7 @@ public class ConsumerFragmentService {
     }
 
     public void addFragment(String hexStr, Date receivingDate, Boolean alreadySync, String syncedFromInstance) throws IOException {
-        String dataStr = new String(StringUtils.decodeHex(hexStr)); // TODO: add cypher
+        String dataStr = new String(StringUtils.decodeHex(hexStr));
         Fragment fragment = objectMapper.readValue(dataStr.getBytes(StandardCharsets.UTF_8), Fragment.class);
         if (isValidFragment(fragment)) {
             addFragment(fragment, receivingDate, alreadySync, syncedFromInstance);

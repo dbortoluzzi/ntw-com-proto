@@ -67,8 +67,8 @@ public class ProducerFragmentService {
         String textEncoded = StringUtils.encodeHexString(text);
         return Fragment.builder()
                 .filename(filename)
-                .index(index.intValue()) //TODO: convert to long
-                .total(total.intValue()) //TODO: convert to long
+                .index(index)
+                .total(total)
                 .timestamp(timestamp)
                 .payload(
                         Payload.builder()
