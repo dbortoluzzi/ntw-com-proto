@@ -19,3 +19,19 @@
 ## Clear MongoDB data
 1. Connect with SSH to DB container: `docker exec -it ntw-com-proto_db_1 /bin/bash`
 2. Clear all databases: `mongo --quiet --eval 'db.getMongo().getDBNames().forEach(function(i){db.getSiblingDB(i).dropDatabase()})'`
+
+## Start/stop consumers
+### Start
+- `docker start ntw-com-proto_consumer-service_1`
+- `docker start ntw-com-proto_consumer-service_2`
+### Stop
+- `docker stop ntw-com-proto_consumer-service_1`
+- `docker stop ntw-com-proto_consumer-service_2`
+
+## Start/stop producers
+### Start
+- `docker start ntw-com-proto_producer-service_1`
+- `docker start ntw-com-proto_producer-service_2`
+### Stop
+- `docker stop ntw-com-proto_producer-service_1`
+- `docker stop ntw-com-proto_producer-service_2`

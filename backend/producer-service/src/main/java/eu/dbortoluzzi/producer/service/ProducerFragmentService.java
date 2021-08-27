@@ -28,6 +28,7 @@ import java.util.concurrent.CompletableFuture;
 @Slf4j
 public class ProducerFragmentService {
 
+    public static final int TIMEOUT_SEND_TO_CONSUMERS = 30000; //TODO: add configuration
     private final ObjectMapper objectMapper;
 
     final RestTemplate restTemplate;
@@ -90,7 +91,11 @@ public class ProducerFragmentService {
     }
 
     public boolean sendToConsumer(Fragment fragment) {
-        for (RoutingElement routingElement: instanceConfiguration.consumers()){
+        int i = 0;
+        boolean done = false;
+        long start = new Date().getTime();
+        while (!done && new Date().getTime() < start + TIMEOUT_SEND_TO_CONSUMERS) {
+            RoutingElement routingElement = instanceConfiguration.consumers().get(i);
             String url = "";
             try {
                 String postData = StringUtils.encodeHexString(toJsonString(fragment).getBytes(StandardCharsets.UTF_8));
@@ -98,15 +103,19 @@ public class ProducerFragmentService {
                 String result = restTemplate.postForObject(url, postData, String.class);
                 log.info("RESULT CONSUMER for {} : {}", routingElement.getName(), result);
                 if ("OK".equals(result)) {
-                    return true;
+                    done = true;
                 } else {
                     throw new IllegalStateException("Error consumer " + routingElement.getName());
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 log.info("RESULT CONSUMER KO for {} and url {}", routingElement.getName(), url, e);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ignored) {}
             }
+            i = (i + 1) % instanceConfiguration.consumers().size();
         }
-        return false;
+        return done;
     }
 
     public void addElaborationToCompletableFutures(File file, Date timestamp, byte[] buffer, long totalFragment, long counter, List<CompletableFuture<Boolean>> completableFutureList) {

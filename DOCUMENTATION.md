@@ -24,7 +24,6 @@
 - Qualora il file venga inviato completamente (ad es. senza un crash del producer), il file viene cancellato dal file system. 
 > TODO: 
 > - recupero dei file non completamente acquisiti allo start up del servizi
-> - aggiunta di un timeout per sospendere l'invio dopo X minuti
 
 ### Invio frammento
 - Il frammento inviato è così strutturato:
