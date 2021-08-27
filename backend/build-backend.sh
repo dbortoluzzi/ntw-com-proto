@@ -7,14 +7,11 @@ echo $(java -version)
 echo $(mvn --version | grep -i java )
 
 cd commons/
-mvn clean package
+mvn clean install package
 cd ../
 cd consumer-service/
-mvn clean package
+mvn clean install package
 cd ../
 cd producer-service/
-mvn clean package
+mvn clean install package
 cd ../
-#cd auth-service/
-#mvn clean package
-#cd ../

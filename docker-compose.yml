@@ -42,21 +42,6 @@ services:
     networks:
       - app-network
 
-  auth-service:
-    restart: always
-    container_name: auth-service
-    build:
-      context: ./backend/auth-service
-      dockerfile: Dockerfile
-    expose:
-      - "8080"
-    ports:
-      - "8080"
-    depends_on:
-      - db
-    networks:
-      - app-network
-
   nginx:
     restart: always
     build:

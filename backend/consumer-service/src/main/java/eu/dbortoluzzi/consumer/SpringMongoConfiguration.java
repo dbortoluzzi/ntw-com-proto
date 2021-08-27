@@ -25,14 +25,6 @@ public class SpringMongoConfiguration extends AbstractMongoConfiguration {
         return "db_"+instanceConfiguration.getInstanceName();
     }
 
-//    @SneakyThrows
-//    @Override
-//    protected String getDatabaseName() {
-//        // TODO: read from config
-//        InetAddress localHost = InetAddress.getLocalHost();
-//        return "db_"+localHost.getHostName();
-//    }
-
     @Value("${spring.data.mongodb.uri}")
     private String mongoURI;
 

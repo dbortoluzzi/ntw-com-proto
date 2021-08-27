@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/backend/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/backend/auth-service/auth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/consumer-service/consumer-service.iml" filepath="$PROJECT_DIR$/backend/consumer-service/consumer-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ntw-com-proto.iml" filepath="$PROJECT_DIR$/.idea/ntw-com-proto.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/producer-service/producer-service.iml" filepath="$PROJECT_DIR$/backend/producer-service/producer-service.iml" />
